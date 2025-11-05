@@ -15,6 +15,7 @@ body {
     display: block;
     text-align: center;
     border: 1px solid #6b0609;
+    box-shadow: 0 1px 2px 0 rgba(8, 12, 9, 0.05), inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(8, 12, 9, 0.15), inset 0 2px 1px 0 rgba(255, 255, 255, 0.25), inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
     background-color: #6b0609;
     border-radius: 100px;
     padding: 10px 24px;
@@ -26,7 +27,7 @@ body {
 
 .button:hover,
 .button:focus {
-    background-color: transparent;
-    border: 1px solid #6b0609;
+    box-shadow: 0 1px 2px 0 rgba(8, 12, 9, 0.05), inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(8, 12, 9, 0.15), inset 0 2px 1px 0 rgba(255, 255, 255, 0.25), inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
+    background-color: #6b0609;
     opacity: 0.5;
 }
