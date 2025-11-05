@@ -149,7 +149,25 @@
 
 ## 👨‍💻 Команда проєкту
 
-Командна робота студентів курсу **Fullstack Developer (GoIT)**.
+Командна робота студентів курсу **Fullstack Developer (GoIT)**:
+
+**Team lead:** Alina Slipenka
+
+**Scrum master:** Alisa Pagan
+
+**Developer 1:** Alina Yashchenko
+
+**Developer 2:** Vitalii Ivashchenko
+
+**Developer 3:** Anastasiia Melnyk
+
+**Developer 4:** Dasha Kazarina
+
+**Developer 5:** Tetiana Shcherbyna
+
+**Developer 6:** Tetiana Kovpak
+
+**Developer 7:** Mykhailo Pyroh
 
 **Дизайн:**
 [Figma-макет](https://www.figma.com/design/xmuUuDiEAbT0mjmpgzPrc0/%D0%9C%D0%B5%D0%B1%D0%BB%D0%B5%D1%80%D1%96%D1%8F)  
