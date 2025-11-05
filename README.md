@@ -117,33 +117,10 @@
 
 ---
 
-## 🛠️ Як запустити проєкт локально
-
-1. **Клонувати репозиторій:**
-   ```bash
-   git clone https://github.com/your-username/furniture-store.git
-   ```
-2. **Перейти в папку проєкту:**
-   ```bash
-   cd furniture-store
-   ```
-3. **Встановити залежності:**
-   ```bash
-   npm install
-   ```
-4. **Запустити проєкт локально:**
-   ```bash
-   npm run dev
-   ```
-5. **Відкрити в браузері:**  
-   [http://localhost:5173](http://localhost:5173)
-
----
-
 ## 📦 Деплой
 
-Сайт задеплоєно на **Vercel:**  
-🔗 [https://furniture-store.vercel.app](https://furniture-store.vercel.app)
+Сайт задеплоєно на **Github:**  
+🔗 [https://alinaslp.github.io/QuantumJS/]
 
 ---
 
@@ -168,10 +145,6 @@
 **Developer 6:** Tetiana Kovpak
 
 **Developer 7:** Mykhailo Pyroh
-
-**Дизайн:**
-[Figma-макет](https://www.figma.com/design/xmuUuDiEAbT0mjmpgzPrc0/%D0%9C%D0%B5%D0%B1%D0%BB%D0%B5%D1%80%D1%96%D1%8F)  
-**Розробка:** HTML / CSS / JavaScript (ES6+)
 
 ---
 
