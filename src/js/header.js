@@ -1,5 +1,11 @@
 // IMPORTS
-import { header, burgerButton, closeButton, closeButtonTab } from './refs';
+import {
+  header,
+  burgerButton,
+  closeButton,
+  closeButtonTablet,
+  headerBackdrop,
+} from './refs';
 
 // EVENT LISTENERS
 
@@ -18,7 +24,8 @@ export function toggleNavMenu(event) {
     document.body.classList.add('no-scroll');
   } else if (
     closeButton.contains(event.target) ||
-    closeButtonTab.contains(event.target)
+    closeButtonTablet.contains(event.target) ||
+    headerBackdrop.contains(event.target)
   ) {
     header.classList.remove('menu-open');
     document.body.classList.remove('no-scroll');
