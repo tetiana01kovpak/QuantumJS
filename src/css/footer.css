@@ -1,4 +1,4 @@
-/* Footer (mobile-first) */
+/* Footer(mobile-first) */
 .footer {
   background-color: #6b0609;
   color: #fff;
@@ -9,11 +9,11 @@
 }
 
 .footer-container {
+  display: flex;
   padding-bottom: 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 32px;
 }
 
 /* Logo */
@@ -37,7 +37,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 28px;
+  gap: 32px;
+  margin-bottom: 24px;
 }
 
 .footer-link {
@@ -72,8 +73,13 @@
 .footer-social-link:hover,
 .footer-social-link:focus-visible {
   transform: translateY(-2px) scale(1.05);
-  opacity: 0.9;
   outline: none;
+}
+
+.footer-social-link:hover svg,
+.footer-social-link:focus-visible svg {
+  opacity: 0.6;
+  transition: opacity 0.25s ease;
 }
 
 .footer-icon {
@@ -98,24 +104,29 @@
 @media (min-width: 768px) {
   .footer-container {
     padding: 0px 32px 32px;
-    gap: 24px;
   }
 
   .footer-menu {
     flex-direction: row;
     justify-content: center;
-    gap: 32px;
   }
 }
 
 /* Desktop */
 @media (min-width: 1440px) {
   .footer-container {
+    display: flex;
     flex-direction: row;
     align-items: center;
     flex-wrap: nowrap;
     gap: 0;
-    padding-bottom: 0px;
+    padding: 24px 64px 0;
+  }
+
+  .footer-logo,
+  .footer-menu,
+  .footer-copy {
+    margin: 0;
   }
 
   .footer-logo {
@@ -124,11 +135,16 @@
     margin-right: 80px;
   }
 
+  .footer-logo-icon {
+    display: block;
+  }
+
   .footer-copy {
     order: 2;
     flex: 0 0 auto;
-    margin: 0 40px 0 0;
+    margin-right: 80px;
     white-space: nowrap;
+    line-height: 1;
     text-align: left;
   }
 
@@ -138,23 +154,29 @@
     min-width: 0;
     display: flex;
     justify-content: center;
+    align-items: center;
+  }
+
+  .footer-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 32px;
+    min-width: 0;
   }
 
   .footer-social {
     order: 4;
     flex: 0 0 auto;
-    margin-left: 40px;
-  }
-
-  .footer-menu {
-    flex-direction: row;
+    display: flex;
     align-items: center;
-    flex-wrap: nowrap;
-    column-gap: 40px;
-    min-width: 0;
+    gap: 24px;
+    margin-left: 80px;
   }
 
-  .footer-link {
-    font-size: 18px;
+  .footer-social-link svg {
+    display: block;
+    vertical-align: middle;
   }
 }
