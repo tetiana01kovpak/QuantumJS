@@ -1,0 +1,145 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.reviews {
+  margin-left: 20px;
+  margin: 64px 20px 64px 20px;
+}
+
+.review {
+  padding: 0;
+  display: flex; 
+      align-items: stretch;
+}
+
+.container-review {
+  margin: 80px 20px 48px 0;
+}
+
+.title-review {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 120%;
+  letter-spacing: 0.01em;
+  color: #080c09;
+}
+
+.paragraf-reviews {
+ 
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 160%;
+  color: #080c09;
+  margin-top: 24px;
+}
+
+.text-review {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 160%;
+  margin-top: 24px;
+  flex-grow: 1; 
+  justify-content: flex-end;
+}
+
+.review-author {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 160%;
+  margin-top: 24px;
+  display: flex;
+}
+.review-exemplar {
+  list-style: none;
+  width: 335px;
+  padding-right: 48px;
+  box-sizing: border-box;
+  display: flex; 
+  flex-direction: column; 
+  height: 100%;
+  flex-grow: 1; 
+  justify-content: space-between; 
+}
+.review-exemplar-second,
+.review-exemplar-third {
+  display: none;
+}
+.scroll {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-end;
+}
+
+.button-review-right,
+.button-review-left {
+  background: #f2f2f2;
+  border: 1px solid #080c09;
+  border-radius: 100px;
+  padding: 12px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button-review-left:hover,
+.button-review-right:hover
+ {
+  background-color: #975052;
+}
+
+.button-review-left:active,
+.button-review-right:active {
+  background-color: #6b0609; 
+}
+
+
+.button-review-left:hover svg use,
+.button-review-left:active svg use,
+.button-review-right:hover svg use,
+.button-review-right:active svg use {
+  fill: #FFFFFF;
+}
+
+
+@media screen and (min-width: 768px) {
+  .review-exemplar {
+    width: 254px;
+  }
+
+  .review-exemplar-second {
+    display: block;
+  }
+
+  .review {
+    display: flex;
+    gap: 24px;
+  }
+
+  .review-exemplar {
+    width: 340px;
+    padding-right: 48px;
+  }
+
+  .reviews {
+    margin: 32px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .review-exemplar-third {
+    display: block;
+  }
+  .review-exemplar {
+    width: 421px;
+    padding-right: 48px;
+  }
+  .reviews {
+    margin: 64px;
+  }
+}
