@@ -1,7 +1,7 @@
 .modal-overlay {
   position: fixed;
   inset: 0;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   background: rgba(0, 0, 0, 0.25);
@@ -10,7 +10,10 @@
   isolation: isolate;
 }
 
-/* Modal */
+.modal-overlay.is-open {
+  display: flex;
+}
+
 .modal {
   display: flex;
   flex-direction: column;
@@ -22,10 +25,8 @@
   background: #fff;
   border-radius: 8px;
   position: relative;
-  font-family: 'Raleway', sans-serif;
 }
 
-/* Close button */
 .modal-close {
   position: absolute;
   width: 32px;
@@ -40,7 +41,6 @@
   z-index: 1;
 }
 
-/* Section Title */
 .section-title {
   display: flex;
   flex-direction: column;
@@ -50,15 +50,15 @@
 }
 
 .modal-heading {
+  width: 295px;
   font-weight: 700;
-  font-size: 48px;
+  font-size: 36px;
   line-height: 120%;
   text-align: center;
   letter-spacing: 0.01em;
   color: #080c09;
 }
 
-/* Form */
 .modal-form {
   display: flex;
   flex-direction: column;
@@ -67,7 +67,6 @@
   width: 295px;
 }
 
-/* Field group */
 .modal-field {
   display: flex;
   flex-direction: column;
@@ -93,7 +92,6 @@
   line-height: 160%;
   color: #080c09;
   padding: 8px 12px;
-  font-family: 'Raleway', sans-serif;
   outline: none;
   transition: all 0.2s ease;
 }
@@ -120,9 +118,24 @@
   color: rgba(8, 12, 9, 0.6);
 }
 
-.modal-heading {
-  font-size: 36px;
-  width: 295px;
+.modal-field input:invalid,
+.modal-field textarea:invalid {
+  border-color: #6b0609;
+  color: #6b0609;
+}
+
+.modal-field input:focus:invalid,
+.modal-field textarea:focus:invalid {
+  box-shadow: 0 0 0 2px rgba(107, 6, 9, 0.06);
+}
+
+.modal-field input:invalid::placeholder,
+.modal-field textarea:invalid::placeholder {
+  color: #6b0609;
+}
+
+.modal-field.error .error-text {
+  display: block;
 }
 
 .modal-field textarea {
@@ -130,7 +143,6 @@
   resize: none;
 }
 
-/* Button styles */
 .modal-button {
   display: flex;
   justify-content: center;
@@ -190,7 +202,6 @@
     width: 640px;
   }
   .modal-heading {
-    font-size: 36px;
     width: 530px;
   }
   .modal-form {
