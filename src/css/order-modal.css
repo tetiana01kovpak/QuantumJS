@@ -1,13 +1,18 @@
 .modal-overlay {
   position: fixed;
   inset: 0;
-  display: flex;
+  display: none; /* hidden by default, shown when .is-open is added */
   justify-content: center;
   align-items: center;
   background: rgba(0, 0, 0, 0.25);
   z-index: 1000;
   padding: 64px 20px;
   isolation: isolate;
+}
+
+/* show overlay when is-open */
+.modal-overlay.is-open {
+  display: flex;
 }
 
 /* Modal */
@@ -118,6 +123,26 @@
 .modal-field input::placeholder,
 .modal-field textarea::placeholder {
   color: rgba(8, 12, 9, 0.6);
+}
+
+.modal-field input:invalid,
+.modal-field textarea:invalid {
+  border-color: #6b0609;
+  color: #6b0609;
+}
+
+.modal-field input:focus:invalid,
+.modal-field textarea:focus:invalid {
+  box-shadow: 0 0 0 2px rgba(107, 6, 9, 0.06);
+}
+
+.modal-field input:invalid::placeholder,
+.modal-field textarea:invalid::placeholder {
+  color: #6b0609;
+}
+
+.modal-field.error .error-text {
+  display: block;
 }
 
 .modal-heading {
