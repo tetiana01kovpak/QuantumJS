@@ -1,3 +1,9 @@
+.furniture__header {
+  display:flex;
+  gap: 16px;
+  flex-direction: column;
+}
+
 .furniture__title {
   font-size: 36px;
 }
@@ -13,7 +19,7 @@
   gap: 12px;
   justify-content: center;
   padding: 0;
-  margin: 16px 0 20px;
+  margin: 40px 0;
   list-style: none;
 }
 

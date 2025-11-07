@@ -6,7 +6,7 @@ html {
   overflow: hidden;
 }
 
-.header {
+.header .container {
   background-color: #ffffff;
   padding-top: 17px;
   padding-bottom: 17px;
@@ -27,6 +27,8 @@ html {
 .burger-btn {
   background-color: transparent;
   border: none;
+  display: block;
+  padding: 0;
 }
 
 .header.menu-open .burger-btn {
@@ -90,7 +92,7 @@ html {
 .header-nav-link {
   display: block;
   color: inherit;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 18px;
 }
 

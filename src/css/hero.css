@@ -1,5 +1,5 @@
 .hero {
-background-image: url(../img/hero/1x/mob.webp);
+background-image: url(../img/hero-mob.webp);
 background-size: cover;
 height: 616px;
 padding: 136.5px 20px;
@@ -7,7 +7,7 @@ padding: 136.5px 20px;
 
 @media screen and (min-resolution: 2x) {
     .hero {
-    background-image: url(../img/hero/2x/mob@2x.webp);
+    background-image: url(../img/hero-mob@2x.webp);
     background-size: cover;
     }
 }
@@ -56,7 +56,7 @@ opacity: 0.5;
 @media screen and (min-width: 768px) {
 
 .hero {
-background-image: url(../img/hero/1x/tab.webp);
+background-image: url(../img/hero-tab.webp);
 background-size: cover;
 height: 397px;
 padding: 79.5px 32px;
@@ -64,7 +64,7 @@ padding: 79.5px 32px;
 
 @media screen and (min-resolution: 2x) {
     .hero {
-    background-image: url(../img/hero/2x/tab@2x.webp);
+    background-image: url(../img/hero-tab@2x.webp);
     background-size: cover;
     }
 }
@@ -93,7 +93,7 @@ opacity: 0.5;
 @media screen and (min-width: 1440px) {
 
 .hero {
-background-image: url(../img/hero/1x/desk.webp);
+background-image: url(../img/hero-desk.webp);
 background-size: cover;
 height: 508px;
 padding: 92px 63px;
@@ -101,7 +101,7 @@ padding: 92px 63px;
 
 @media screen and (min-resolution: 2x) {
     .hero {
-    background-image: url(../img/hero/2x/desk@2x.webp);
+    background-image: url(../img/hero-desk@2x.webp);
     background-size: cover;
     }
 }
