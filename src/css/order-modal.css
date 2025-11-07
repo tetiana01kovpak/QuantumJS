@@ -1,0 +1,239 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 1000;
+  padding: 64px 20px;
+  isolation: isolate;
+}
+
+/* Modal */
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 64px 20px;
+  gap: 48px;
+  width: 335px;
+  height: 703px;
+  background: #fff;
+  border-radius: 8px;
+  position: relative;
+  font-family: 'Raleway', sans-serif;
+}
+
+/* Close button */
+.modal-close {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: 24px;
+  right: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #080c09;
+  padding: 0;
+  z-index: 1;
+}
+
+/* Section Title */
+.section-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 295px;
+}
+
+.modal-heading {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 120%;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #080c09;
+}
+
+/* Form */
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 295px;
+}
+
+/* Field group */
+.modal-field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+}
+
+.modal-field label {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 160%;
+  color: #080c09;
+}
+
+.modal-field input,
+.modal-field textarea {
+  width: 100%;
+  background: rgba(8, 12, 9, 0.05);
+  border: 1px solid rgba(8, 12, 9, 0.15);
+  border-radius: 12px;
+  font-size: 16px;
+  line-height: 160%;
+  color: #080c09;
+  padding: 8px 12px;
+  font-family: 'Raleway', sans-serif;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.modal-field input:hover:not(:disabled),
+.modal-field textarea:hover:not(:disabled) {
+  border-color: rgba(8, 12, 9, 0.4);
+}
+
+.modal-field input:focus:not(:disabled),
+.modal-field textarea:focus:not(:disabled) {
+  border-color: rgba(8, 12, 9, 0.4);
+  box-shadow: 0 0 0 2px rgba(8, 12, 9, 0.1);
+}
+
+.modal-field input:disabled,
+.modal-field textarea:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+
+.modal-field input::placeholder,
+.modal-field textarea::placeholder {
+  color: rgba(8, 12, 9, 0.6);
+}
+
+.modal-heading {
+  font-size: 36px;
+  width: 295px;
+}
+
+.modal-field textarea {
+  height: 180px;
+  resize: none;
+}
+
+/* Button styles */
+.modal-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 24px;
+  gap: 8px;
+  width: 295px;
+  height: 46px;
+  background: #6b0609;
+  box-shadow: 0px 1px 2px rgba(8, 12, 9, 0.05),
+    inset 0px 32px 24px rgba(255, 255, 255, 0.05),
+    inset 0px 2px 1px rgba(255, 255, 255, 0.25),
+    inset 0px 0px 0px 1px rgba(8, 12, 9, 0.15),
+    inset 0px -2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 100px;
+  border: none;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 160%;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.modal-button:hover:not(:disabled) {
+  opacity: 0.5;
+}
+
+.modal-button:active:not(:disabled) {
+  box-shadow: none;
+  transform: translateY(1px);
+}
+
+.modal-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(107, 6, 9, 0.4);
+}
+
+.modal-button:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+
+/* Tablet styles */
+@media only screen and (min-width: 768px) {
+  .modal-overlay {
+    padding: 64px 32px;
+  }
+  .modal {
+    width: 704px;
+    height: 671px;
+    padding: 64px 32px 32px;
+    gap: 48px;
+  }
+  .section-title {
+    width: 640px;
+  }
+  .modal-heading {
+    font-size: 36px;
+    width: 530px;
+  }
+  .modal-form {
+    width: 640px;
+  }
+  .modal-field {
+    width: 640px;
+  }
+  .modal-field input,
+  .modal-field textarea {
+    width: 640px;
+  }
+  .modal-button {
+    width: 196px;
+    height: 46px;
+  }
+}
+
+/* Desktop styles */
+@media only screen and (min-width: 1440px) {
+  .modal-overlay {
+    padding: 64px 0;
+  }
+  .modal {
+    width: 866px;
+    height: 718px;
+    padding: 64px;
+  }
+  .section-title {
+    width: 738px;
+  }
+  .modal-form {
+    width: 738px;
+  }
+  .modal-field {
+    width: 738px;
+  }
+  .modal-field input,
+  .modal-field textarea {
+    width: 738px;
+  }
+  .modal-heading {
+    font-size: 48px;
+    width: 530px;
+  }
+}

@@ -1,0 +1,96 @@
+.container {
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.accordion-container {
+  margin: 0 auto;
+}
+
+.faq-title {
+  font-size: 36px;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  text-align: center;
+  margin: 0;
+  color: #080c09;
+  margin-bottom: 32px;
+}
+
+.ac {
+  border-top: 1px solid rgba(8, 12, 9, 0.15);
+}
+.ac-header {
+  padding: 20px 0;
+}
+
+.ac-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.ac-trigger-text {
+  font-weight: 700;
+  font-size: 18px;
+  text-align: left;
+  line-height: 1.6;
+}
+
+.ac-icon {
+  width: 32px;
+  height: 32px;
+  flex: 0 0 auto;
+  transition: transform 0.25s ease;
+}
+
+.ac.is-active .ac-icon,
+.ac.is-open .ac-icon {
+  transform: rotate(180deg);
+}
+
+.ac-panel {
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.ac.is-active .ac-panel,
+.ac.is-open .ac-panel {
+  max-height: 865px;
+}
+.ac-text {
+  padding: 0 0 24px 0;
+}
+.ac:last-child {
+  border-bottom: 1px solid rgba(8, 12, 9, 0.15);
+}
+
+.faq .ac .ac-trigger::after {
+  content: none;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    padding: 80px 64px;
+    max-width: 100%;
+  }
+  .accordion-container {
+    margin-left: 224px;
+    margin-right: 224px;
+  }
+}
