@@ -50,17 +50,32 @@
   transition: transform 0.25s ease;
 }
 
-.ac.is-open .ac-icon,
-.ac[aria-expanded='true'] .ac-icon {
+.ac.is-active .ac-icon,
+.ac.is-open .ac-icon {
   transform: rotate(180deg);
 }
 
 .ac-panel {
-  padding: 0 0 24px 0;
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
 }
 
+.ac.is-active .ac-panel,
+.ac.is-open .ac-panel {
+  max-height: 865px;
+}
+.ac-text {
+  padding: 0 0 24px 0;
+}
 .ac:last-child {
   border-bottom: 1px solid rgba(8, 12, 9, 0.15);
+}
+
+.faq .ac .ac-trigger::after {
+  content: none;
+  display: none;
 }
 
 @media (min-width: 768px) {
