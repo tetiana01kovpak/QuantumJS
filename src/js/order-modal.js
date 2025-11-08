@@ -19,25 +19,6 @@ function close() {
   orderData = {};
 }
 
-// Testing only - delete after product model handles submit
-document.addEventListener('click', e => {
-  const btn = e.target.closest('.modal-sub-btn');
-  if (!btn) return;
-
-  const prodModal = document.querySelector('.prod-modal-window');
-  const modelId =
-    prodModal?.dataset.modelId ||
-    btn.dataset.modelId ||
-    '682f9bbf8acbdf505592ac42';
-  const color =
-    document.querySelector('input[name="product-color"]:checked')?.value || '';
-
-  document.querySelector('.prod-modal-overlay')?.classList.remove('is-open');
-
-  console.log(modelId, color);
-  open({ modelId, color });
-});
-
 overlay?.querySelector('.modal-close')?.addEventListener('click', close);
 overlay?.addEventListener('click', e => e.target === overlay && close());
 document.addEventListener(
@@ -61,6 +42,7 @@ form?.addEventListener('submit', async e => {
     color: orderData.color,
     comment: (data.get('comment') || '').toString().trim(),
   };
+  console.log(payload);
 
   try {
     const res = await fetch(
