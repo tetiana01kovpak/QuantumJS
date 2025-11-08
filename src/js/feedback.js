@@ -37,7 +37,7 @@ function renderStars(rating) {
   for (let i = 0; i < fullStars; i++) {
     starsHTML += `
       <svg width="20" height="20" class="star-icon">
-        <use href="./img/icons.svg#icon-star-fill"></use>
+        <use href="./src/img/icons.svg#icon-star-fill"></use>
       </svg>
     `;
   }
@@ -45,7 +45,7 @@ function renderStars(rating) {
   if (hasHalfStar) {
     starsHTML += `
       <svg width="20" height="20" class="star-icon">
-        <use href="./img/icons.svg#icon-star-half"></use>
+        <use href="./src/img/icons.svg#icon-star-half"></use>
       </svg>
     `;
   }
@@ -53,7 +53,7 @@ function renderStars(rating) {
   for (let i = 0; i < emptyStars; i++) {
     starsHTML += `
       <svg width="20" height="20" class="star-icon">
-        <use href="./img/icons.svg#icon-star-blank"></use>
+        <use href="./src/img/icons.svg#icon-star-blank"></use>
       </svg>
     `;
   }
