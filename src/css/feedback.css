@@ -3,11 +3,6 @@
   padding: 0;
 }
 
-.reviews {
-  margin-left: 20px;
-  margin: 64px 20px 64px 20px;
-}
-
 .review {
   padding: 0;
   display: flex; 
@@ -45,6 +40,7 @@
   margin-top: 24px;
   flex-grow: 1; 
   justify-content: flex-end;
+  height: 128px;
 }
 
 .review-author {
@@ -166,9 +162,5 @@
 
   .review-exemplar {
     width: 421px;
-  }
-
-  .text-review {
-    height: 128px;
   }
 }

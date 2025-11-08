@@ -82,7 +82,7 @@
 
 .furniture__load-more {
   width: 340px;
-  margin: 0 auto;
+  margin: 32px auto 0;
 }
 
 .category-chip--all {
@@ -296,7 +296,6 @@
     box-shadow: inset 0 0 0 8px #6b0609, 0 4px 14px rgba(0, 0, 0, 0.1);
   }
   .furniture__load-more {
-    margin-top: 32px;
     width: 421px;
   }
   .furniture-categories__list {
@@ -310,10 +309,6 @@
   }
   .category-chip__label {
     width: 134px;
-  }
-  .furniture__load-more:hover,
-  .furniture__load-more:focus {
-    opacity: 0.5;
   }
   .furniture-list {
     margin-top: 8px;
