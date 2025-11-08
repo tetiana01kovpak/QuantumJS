@@ -1,7 +1,9 @@
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
-const overlay = document.querySelector('.modal-overlay');
+import { overlay } from './refs';
+import { closeModal as closeProductModal } from './product-modal.js';
+
 const form = overlay?.querySelector('.modal-form');
 let orderData = {};
 
@@ -24,6 +26,7 @@ document.addEventListener('click', e => {
   const btn = e.target.closest('.modal-sub-btn');
   if (!btn) return;
 
+  closeProductModal();
   const prodModal = document.querySelector('.prod-modal-window');
   const modelId =
     prodModal?.dataset.modelId ||

@@ -1,9 +1,6 @@
 // product-modal.js
 
-const modalOverlay = document.querySelector('.prod-modal-overlay');
-const modalWindow = document.querySelector('.prod-modal-window');
-const closeBtn = document.querySelector('.close-modal-btn');
-const furnitureList = document.querySelector('.products-grid.furniture-list-js');
+import { modalOverlay, modalWindow, closeBtn, furnitureList } from './refs';
 
 // === ОТКРЫТИЕ МОДАЛКИ ===
 function openModal(productData) {
@@ -13,7 +10,8 @@ function openModal(productData) {
   document.body.style.overflow = 'hidden';
 
   // наполняем модалку данными
-  modalWindow.querySelector('.prod-name').textContent = productData.name || 'Без назви';
+  modalWindow.querySelector('.prod-name').textContent =
+    productData.name || 'Без назви';
   modalWindow.querySelector('.prod-category').textContent =
     productData.category?.name || 'Категорія';
   modalWindow.querySelector('.prod-price').textContent =
@@ -28,7 +26,9 @@ function openModal(productData) {
   const imgCont = modalWindow.querySelector('.image-cont');
   imgCont.innerHTML = (productData.images || [])
     .slice(0, 3)
-    .map(img => `<img src="${img}" alt="${productData.name}" class="image-modal">`)
+    .map(
+      img => `<img src="${img}" alt="${productData.name}" class="image-modal">`
+    )
     .join('');
 
   // === цвета ===
@@ -45,7 +45,7 @@ function openModal(productData) {
 }
 
 // === ЗАКРЫТИЕ МОДАЛКИ ===
-function closeModal() {
+export function closeModal() {
   modalOverlay.classList.add('is-close');
   document.body.style.overflow = '';
 }
@@ -69,12 +69,13 @@ window.addEventListener('keydown', e => {
 furnitureList.addEventListener('click', async e => {
   const btn = e.target.closest('.product-card__btn');
   if (!btn) return;
-
   const card = btn.closest('.product-card');
   const id = card.dataset.id;
 
   try {
-    const res = await fetch(`https://furniture-store-v2.b.goit.study/api/furnitures/${id}`);
+    const res = await fetch(
+      `https://furniture-store-v2.b.goit.study/api/furnitures/${id}`
+    );
     const data = await res.json();
     openModal(data);
   } catch (err) {
