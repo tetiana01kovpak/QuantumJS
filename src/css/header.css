@@ -18,6 +18,10 @@ html {
   justify-content: space-between;
 }
 
+.logo-header {
+  height: 35px;
+}
+
 .overlay {
   display: block;
   position: fixed;
@@ -55,6 +59,7 @@ html {
   z-index: 999;
   gap: 32px;
 }
+
 .menu-top-wrapper {
   display: flex;
   align-items: center;
@@ -81,6 +86,7 @@ html {
 .header.menu-open .menu-top-wrapper {
   display: flex;
 }
+
 .nav-links-list {
   display: flex;
   flex-direction: column;
@@ -89,6 +95,7 @@ html {
   gap: 32px;
   padding: 0 20px;
 }
+
 .header-nav-link {
   display: block;
   color: inherit;
@@ -99,9 +106,10 @@ html {
 .nav-links-list .button {
   width: 335px;
 }
+
 .nav-button {
   display: block;
-  color: #ffffff;
+  color: #fff;
 }
 
 @media screen and (max-width: 374px) {
@@ -149,11 +157,13 @@ html {
 
   .nav-links-list .button {
     width: 185px;
+    height: 42px;
+    padding: 8px 43px;
   }
 
   .nav-links-list {
     align-items: end;
-    max-width: 175px;
+    max-width: 185px;
     padding: 0;
   }
   .close-btn-tablet {
@@ -170,6 +180,7 @@ html {
   .burger-btn {
     display: none;
   }
+
   .header {
     position: relative;
   }
@@ -182,11 +193,8 @@ html {
 
   .header-nav {
     display: block;
-    /* position: absolute;
-    top: auto;
-    right: 0;
-    left: auto; */
   }
+  
   .nav-links-list {
     flex-direction: row;
     gap: 32px;

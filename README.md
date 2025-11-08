@@ -23,7 +23,7 @@
   [Меблерія — дизайн](https://www.figma.com/design/xmuUuDiEAbT0mjmpgzPrc0/%D0%9C%D0%B5%D0%B1%D0%BB%D0%B5%D1%80%D1%96%D1%8F?node-id=5999-10563)
 
 - **Бекенд (API):**  
-  [Furniture Store API v2](https://furniture-store-v2.b.goit.study/api/)
+  [Furniture Store API v2](https://furniture-store-v2.b.goit.study/api-docs/)
 
 ---
 

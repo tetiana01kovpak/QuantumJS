@@ -1,4 +1,4 @@
-<div class="modal-overlay is-open">
+<div class="modal-overlay">
   <div class="modal">
     <button class="modal-close">
       <svg width="32" height="32">
@@ -13,17 +13,38 @@
     <form class="modal-form">
       <div class="modal-field">
         <label for="name">Ім'я*</label>
-        <input id="name" type="text" placeholder="Дмитро" required />
+        <input
+          id="name"
+          name="name"
+          type="text"
+          placeholder="Дмитро"
+          required
+          minlength="2"
+          maxlength="64"
+        />
       </div>
 
       <div class="modal-field">
         <label for="phone">Телефон*</label>
-        <input id="phone" type="tel" placeholder="38 099 123 22 11" required />
+        <input
+          id="phone"
+          name="phone"
+          type="tel"
+          placeholder="380961234568"
+          required
+          pattern="[0-9]{12}"
+          title="Введіть 12 цифр без пробілів"
+        />
       </div>
 
       <div class="modal-field">
         <label for="comment">Коментар</label>
-        <textarea id="comment" placeholder="Введіть ваш коментар"></textarea>
+        <textarea
+          id="comment"
+          name="comment"
+          placeholder="Введіть ваш коментар"
+          maxlength="256"
+        ></textarea>
       </div>
 
       <button type="submit" class="modal-button">Надіслати заявку</button>

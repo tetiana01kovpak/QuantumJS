@@ -21,7 +21,7 @@
   border-top: 1px solid rgba(8, 12, 9, 0.15);
 }
 .ac-header {
-  padding: 20px 0;
+  padding: 21px 0;
 }
 
 .ac-trigger {
@@ -78,16 +78,15 @@
   display: none;
 }
 
-@media (min-width: 768px) {
-  .container {
-    max-width: 100%;
+@media only screen and (min-width: 768px) {
+ .container {
+    padding: 32px;
   }
 }
 
-@media (min-width: 1440px) {
+@media only screen and (min-width: 1440px) {
   .container {
     padding: 80px 64px;
-    max-width: 100%;
   }
   .accordion-container {
     margin-left: 224px;

@@ -7,6 +7,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    padding: 64px 20px;
 }
 
 .about-us-title {
@@ -28,6 +29,10 @@
 }
 
 @media (min-width: 768px) {
+    .about-us .container {
+        padding: 32px;
+    }
+
     .about-us-text {
         width: 704px;
     }
@@ -44,11 +49,11 @@
         align-items: center;
         justify-content: center;
         gap: 24px;
+        padding: 64px;
     }
 
     .about-us-text {
         width: 644px;        
     }
-
 
 }

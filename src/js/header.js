@@ -33,3 +33,10 @@ export function toggleNavMenu(event) {
     return;
   }
 }
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth >= 1440 && header.classList.contains('menu-open')) {
+    header.classList.remove('menu-open');
+    document.body.classList.remove('no-scroll');
+  }
+});

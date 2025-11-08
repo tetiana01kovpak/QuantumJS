@@ -15,8 +15,8 @@
 }
 .furniture-categories__list {
   display: grid;
-  grid-template-columns: repeat(2, 166px);
-  gap: 12px;
+  grid-template-columns: repeat(2, 159px);
+  gap: 16px;
   justify-content: center;
   padding: 0;
   margin: 40px 0;
@@ -165,8 +165,8 @@
 }
 @media (min-width: 768px) {
   .furniture-categories__list {
-    gap: 20px;
-    grid-template-columns: repeat(4, 166px);
+    gap: 24px;
+    grid-template-columns: repeat(4, 158px);
   }
   .furniture-categories__item {
     width: 158px;
@@ -187,7 +187,6 @@
     width: 421px;
   }
   .furniture-categories__list {
-    gap: 22px;
     grid-template-columns: repeat(7, 166px);
   }
   .furniture-categories__item {

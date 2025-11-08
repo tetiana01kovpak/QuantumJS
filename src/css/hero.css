@@ -1,8 +1,10 @@
 .hero {
 background-image: url(../img/hero-mob.webp);
 background-size: cover;
-height: 616px;
-padding: 136.5px 20px;
+}
+
+.hero .container {
+    padding: 136px 20px;
 }
 
 @media screen and (min-resolution: 2x) {
@@ -25,7 +27,7 @@ height: 96px;
 .hero-description {
 font-weight: 400;
 font-size: 18px;
-line-height: 160%;
+line-height: 1.6;
 color: #fff;
 margin-top: 24px;
 margin-bottom: 32px;
@@ -58,8 +60,6 @@ opacity: 0.5;
 .hero {
 background-image: url(../img/hero-tab.webp);
 background-size: cover;
-height: 397px;
-padding: 79.5px 32px;
 }
 
 @media screen and (min-resolution: 2x) {
@@ -67,6 +67,10 @@ padding: 79.5px 32px;
     background-image: url(../img/hero-tab@2x.webp);
     background-size: cover;
     }
+}
+
+.hero .container {
+padding: 80px 32px;
 }
 
 .hero-title {
@@ -88,15 +92,17 @@ opacity: 0.5;
 }
 }
 
-
 /* desktop */
 @media screen and (min-width: 1440px) {
 
 .hero {
-background-image: url(../img/hero-desk.webp);
-background-size: cover;
-height: 508px;
-padding: 92px 63px;
+    background-image: url(../img/hero-desk.webp);
+    background-size: cover;
+}
+
+.hero .container {
+    padding-top: 92px;
+    padding-bottom: 92px;
 }
 
 @media screen and (min-resolution: 2x) {
