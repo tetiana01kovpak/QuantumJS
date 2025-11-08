@@ -11,7 +11,7 @@
   font-size: 18px;
 }
 .furniture-categories {
-  margin: 0 auto;
+  margin-bottom: 40px;
 }
 .furniture-categories__list {
   display: grid;
@@ -164,11 +164,8 @@
   );
 }
 
-/* ///////////////////////////////////////////////////////////////// */
-/* ---------- Список товарів: 1 / 2 / 3 / 4 колонки ---------- */
 .furniture-list {
   margin-top: 8px;
-  max-width: 1312px;
 }
 
 .products-grid {
@@ -310,12 +307,68 @@
   .category-chip__label {
     width: 134px;
   }
+
   .furniture-list {
-    margin-top: 8px;
-    margin: 0 auto;
+    margin-bottom: 32px;
   }
   .products-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 18px;
   }
+}
+/* твоя анімація */
+@keyframes mulShdSpin {
+  0%,
+  100% {
+    box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em,
+      0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+  }
+  12.5% {
+    box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em,
+      0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+  }
+  25% {
+    box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0,
+      0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+  }
+  37.5% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 0, 2em 2em 0 0.2em,
+      0 3em 0 0, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+  }
+  50% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0,
+      0 3em 0 0.2em, -2em 2em 0 0, -3em 0 0 -1em, -2em -2em 0 -1em;
+  }
+  62.5% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em,
+      0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+  }
+  75% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em,
+      0 3em 0 -1em, -2em 2em 0 0, -3em 0 0 0.2em, -2em -2em 0 0;
+  }
+  87.5% {
+    box-shadow: 0 -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em,
+      0 3em 0 -1em, -2em 2em 0 0, -3em 0 0 0, -2em -2em 0 0.2em;
+  }
+}
+
+/* стиль спінера + центровання */
+.loader {
+  margin: 60px auto;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  font-size: 14px; /* розмір спінера — міняй як треба */
+  color: #6b0609; /* колір тіней у box-shadow */
+  text-indent: -9999em; /* приховує текст, якщо раптом буде */
+  animation: mulShdSpin 1.1s infinite ease;
+}
+
+/* необов’язково, але корисно — приховуємо блок, коли є атрибут hidden */
+.loader[hidden] {
+  display: none !important;
+}
+.furniture__load-more[hidden] {
+  display: none !important;
 }

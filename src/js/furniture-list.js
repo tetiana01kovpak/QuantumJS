@@ -1,15 +1,24 @@
 import axios from 'axios';
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 
+import {
+  categoriesListEl,
+  productsListEl,
+  btnLoadMore,
+  loaderEl,
+} from './refs';
+
+/* ================= Scroll restoration ================= */
+document.addEventListener('DOMContentLoaded', () => {
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+});
+
+/* ================= Config ================= */
 const BASE_URL = 'https://furniture-store-v2.b.goit.study/api';
 
-// DOM
-const els = {
-  categories: document.querySelector('.furniture-categories__list'),
-  products: document.querySelector('.products-grid.furniture-list-js'),
-  more: document.querySelector('.furniture__load-more'),
-};
-
-// Мапа модифікаторів на назви з БД
+/* ================= Category name map ================= */
 const MOD_TO_NAME = {
   soft: "М'які меблі",
   wardrobes: 'Шафи та системи зберігання',
@@ -25,31 +34,55 @@ const MOD_TO_NAME = {
   decor: 'Декор та аксесуари',
 };
 
-// State
+/* ================= Toast ================= */
+function showError(message) {
+  iziToast.error({ title: 'Помилка', message, position: 'topRight' });
+}
+function showEndOfAllToast() {
+  iziToast.show({
+    message: 'Це всі товари у розділі «Всі товари».',
+    position: 'topRight',
+  });
+}
+
+/* ================= Loader & Load more sync ================= */
+function updateLoadMoreVisibility() {
+  const shouldShow =
+    productsListEl && productsListEl.children.length < state.total;
+  if (btnLoadMore) btnLoadMore.hidden = !shouldShow;
+}
+function showLoader() {
+  if (loaderEl) loaderEl.hidden = false;
+  if (btnLoadMore) btnLoadMore.hidden = true;
+}
+function hideLoader() {
+  if (loaderEl) loaderEl.hidden = true;
+  updateLoadMoreVisibility();
+}
+
+/* ================= State ================= */
 let state = { categoryId: '', page: 1, limit: 8, total: 0 };
 
-// API
-const getCategories = () =>
-  axios.get(`${BASE_URL}/categories`).then(r => r.data);
+/* ================= API ================= */
+async function getCategories() {
+  const { data } = await axios.get(`${BASE_URL}/categories`);
+  return data;
+}
+async function getFurnitures() {
+  const params = { page: state.page, limit: state.limit };
+  if (state.categoryId) params.category = state.categoryId;
+  const { data } = await axios.get(`${BASE_URL}/furnitures`, { params });
+  return data;
+}
 
-const getFurnitures = () =>
-  axios
-    .get(`${BASE_URL}/furnitures`, {
-      params: {
-        page: state.page,
-        limit: state.limit,
-        ...(state.categoryId ? { category: state.categoryId } : {}), // ← ключ "category"
-      },
-    })
-    .then(r => r.data); // { furnitures, totalItems, ... }
-
-// Helpers
+/* ================= Templating ================= */
 const priceUA = v => new Intl.NumberFormat('uk-UA').format(v) + ' грн';
 const colors = a =>
   (a || [])
     .slice(0, 3)
     .map(c => `<li class="color-dot" style="background:${c}"></li>`)
     .join('');
+
 const card = ({ _id, name, images = [], price, color = [] }) => `
 <li class="product-card" data-id="${_id}">
   <div class="product-card__media">
@@ -65,59 +98,99 @@ const card = ({ _id, name, images = [], price, color = [] }) => `
   </div>
 </li>`;
 
-// Рендер категорій (підпис + data-id)
+/* ================= Renderers ================= */
 async function renderCategories() {
-  const map = Object.fromEntries(
-    (await getCategories()).map(c => [c.name, c._id])
-  );
+  const list = await getCategories();
+  const map = Object.fromEntries(list.map(c => [c.name, c._id]));
 
-  els.categories.querySelectorAll('.category-chip').forEach(btn => {
+  categoriesListEl.querySelectorAll('.category-chip').forEach(btn => {
     if (btn.classList.contains('category-chip--all')) return;
+
     const mod = [...btn.classList]
       .find(c => c.startsWith('category-chip--'))
-      .replace('category-chip--', '');
+      ?.replace('category-chip--', '');
     const name = MOD_TO_NAME[mod];
-    btn.querySelector('.furniture-categories__js').textContent = name;
+
+    const labelEl = btn.querySelector('.furniture-categories__js');
+    if (!name || !labelEl) {
+      btn.disabled = true;
+      return;
+    }
+
+    labelEl.textContent = name;
     btn.dataset.categoryId = map[name] || '';
   });
 }
 
-// Рендер товарів (replace=true — замінити, false — додати)
 async function renderProducts(replace = true) {
   const { furnitures, totalItems } = await getFurnitures();
   state.total = totalItems;
 
   const html = furnitures.map(card).join('');
-  replace
-    ? (els.products.innerHTML = html)
-    : els.products.insertAdjacentHTML('beforeend', html);
-
-  const shown = els.products.children.length;
-  els.more.style.display = shown < state.total ? '' : 'none';
+  if (replace) productsListEl.innerHTML = html;
+  else productsListEl.insertAdjacentHTML('beforeend', html);
 }
 
-// Події
-els.categories.addEventListener('click', e => {
+/* ================= Events ================= */
+categoriesListEl.addEventListener('click', async e => {
   const btn = e.target.closest('.category-chip');
   if (!btn) return;
 
-  els.categories
+  categoriesListEl
     .querySelectorAll('.active-frame')
     .forEach(b => b.classList.remove('active-frame'));
   btn.classList.add('active-frame');
 
-  state.categoryId = btn.dataset.categoryId || ''; // "" = всі товари
+  state.categoryId = btn.dataset.categoryId || '';
   state.page = 1;
-  renderProducts(true);
+
+  try {
+    showLoader();
+    productsListEl.innerHTML = '';
+    await renderProducts(true);
+  } catch (err) {
+    showError(
+      'Не вдалося завантажити товари цієї категорії. Спробуйте пізніше.'
+    );
+  } finally {
+    hideLoader();
+  }
 });
 
-els.more.addEventListener('click', () => {
+btnLoadMore.addEventListener('click', async () => {
   state.page += 1;
-  renderProducts(false);
+
+  btnLoadMore.disabled = true;
+  showLoader();
+  try {
+    const prevCount = productsListEl.children.length;
+    await renderProducts(false);
+
+    const firstNew = productsListEl.children[prevCount];
+    if (firstNew)
+      firstNew.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    const noMore = productsListEl.children.length >= state.total;
+    if (noMore && state.categoryId === '') {
+      showEndOfAllToast();
+    }
+  } catch (err) {
+    showError('Не вдалося завантажити додаткові товари. Спробуйте знову.');
+  } finally {
+    btnLoadMore.disabled = false;
+    hideLoader();
+  }
 });
 
-// Init
+/* ================= Init ================= */
 (async function init() {
-  await renderCategories();
-  await renderProducts(true); // стартові 8 карток
+  try {
+    showLoader();
+    await renderCategories();
+    await renderProducts(true);
+  } catch (err) {
+    showError('Помилка ініціалізації. Оновіть сторінку або спробуйте пізніше.');
+  } finally {
+    hideLoader();
+  }
 })();
