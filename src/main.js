@@ -4,3 +4,4 @@ initReviews();
 import { toggleNavMenu } from './js/header';
 import './js/faq.js';
 import './js/order-modal.js';
+import './js/furniture-list.js';
