@@ -64,6 +64,7 @@ form?.addEventListener('submit', async e => {
     color: orderData.color,
     comment: (data.get('comment') || '').toString().trim(),
   };
+  console.log(payload);
 
   try {
     const res = await fetch(

@@ -42,6 +42,11 @@ function openModal(productData) {
         } style="background:${c}">`
     )
     .join('');
+
+  // store current product id on the window for later retrieval
+  if (productData._id) {
+    modalWindow.dataset.modelId = productData._id;
+  }
 }
 
 // === ЗАКРЫТИЕ МОДАЛКИ ===
@@ -63,6 +68,17 @@ modalOverlay.addEventListener('click', e => {
 // клавиша Escape
 window.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeModal();
+});
+
+// === ПЕРЕЙТИ ДО ЗАМОВЛЕННЯ ===
+orderButton?.addEventListener('click', () => {
+  const modelId = modalWindow.dataset.modelId;
+  if (!modelId) return; // product not loaded yet
+  const color =
+    modalWindow.querySelector('input[name="product-color"]:checked')?.value ||
+    '';
+  closeModal();
+  openOrderModal({ modelId, color });
 });
 
 // === ОТКРЫТИЕ ПО КНОПКЕ “Детальніше” ===
