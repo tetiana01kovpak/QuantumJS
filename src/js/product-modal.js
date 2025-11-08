@@ -1,5 +1,3 @@
-// product-modal.js
-
 import { modalOverlay, modalWindow, closeBtn, furnitureList } from './refs';
 
 // === ОТКРЫТИЕ МОДАЛКИ ===
@@ -71,7 +69,7 @@ window.addEventListener('keydown', e => {
 });
 
 // === ПЕРЕЙТИ ДО ЗАМОВЛЕННЯ ===
-orderButton?.addEventListener('click', () => {
+furnitureList.addEventListener('click', () => {
   const modelId = modalWindow.dataset.modelId;
   if (!modelId) return; // product not loaded yet
   const color =
