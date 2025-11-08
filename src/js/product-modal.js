@@ -1,13 +1,6 @@
 // product-modal.js
 
-const modalOverlay = document.querySelector('.prod-modal-overlay');
-const modalWindow = document.querySelector('.prod-modal-window');
-const closeBtn = document.querySelector('.close-modal-btn');
-const furnitureList = document.querySelector(
-  '.products-grid.furniture-list-js'
-);
-const orderButton = document.querySelector('.prod-modal-window .modal-sub-btn');
-import { openOrderModal } from './order-modal.js';
+import { modalOverlay, modalWindow, closeBtn, furnitureList } from './refs';
 
 // === ОТКРЫТИЕ МОДАЛКИ ===
 function openModal(productData) {
@@ -57,7 +50,7 @@ function openModal(productData) {
 }
 
 // === ЗАКРЫТИЕ МОДАЛКИ ===
-function closeModal() {
+export function closeModal() {
   modalOverlay.classList.add('is-close');
   document.body.style.overflow = '';
 }
@@ -92,7 +85,6 @@ orderButton?.addEventListener('click', () => {
 furnitureList.addEventListener('click', async e => {
   const btn = e.target.closest('.product-card__btn');
   if (!btn) return;
-
   const card = btn.closest('.product-card');
   const id = card.dataset.id;
 

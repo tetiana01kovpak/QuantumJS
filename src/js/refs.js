@@ -15,3 +15,11 @@ export const productsListEl = document.querySelector(
 );
 export const btnLoadMore = document.querySelector('.furniture__load-more');
 export const loaderEl = document.querySelector('#loader');
+
+export const modalOverlay = document.querySelector('.prod-modal-overlay');
+export const modalWindow = document.querySelector('.prod-modal-window');
+export const closeBtn = document.querySelector('.close-modal-btn');
+export const furnitureList = document.querySelector(
+  '.products-grid.furniture-list-js'
+);
+export const overlay = document.querySelector('.modal-overlay');
