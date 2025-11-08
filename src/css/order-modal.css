@@ -8,7 +8,7 @@
   z-index: 1000;
   padding: 64px 20px;
   isolation: isolate;
-}
+} 
 
 .modal-overlay.is-open {
   display: flex;
@@ -39,7 +39,7 @@
   color: #080c09;
   padding: 0;
   z-index: 1;
-}
+} 
 
 .section-title {
   display: flex;
@@ -57,7 +57,7 @@
   text-align: center;
   letter-spacing: 0.01em;
   color: #080c09;
-}
+} 
 
 .modal-form {
   display: flex;
@@ -65,7 +65,7 @@
   align-items: center;
   gap: 24px;
   width: 295px;
-}
+} 
 
 .modal-field {
   display: flex;
@@ -141,7 +141,7 @@
 .modal-field textarea {
   height: 180px;
   resize: none;
-}
+} */
 
 .modal-button {
   display: flex;
@@ -180,7 +180,7 @@
 .modal-button:focus {
   outline: none;
   box-shadow: 0 0 0 2px rgba(107, 6, 9, 0.4);
-}
+} 
 
 .modal-button:disabled {
   opacity: 0.2;

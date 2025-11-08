@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .review {
   padding: 0;
   display: flex; 
@@ -35,6 +40,7 @@
   margin-top: 24px;
   flex-grow: 1; 
   justify-content: flex-end;
+  height: 128px;
 }
 
 .review-author {
@@ -45,6 +51,17 @@
   display: flex;
 }
 
+.review-stars {
+  display: flex;
+  gap: 4px;
+  margin-top: 24px;
+}
+
+.review-stars .star-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
 .review-exemplar {
   list-style: none;
   width: 335px;
@@ -101,6 +118,19 @@
   fill: #FFFFFF;
 }
 
+.button-review-left:disabled,
+.button-review-right:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.button-review-left:disabled:hover,
+.button-review-right:disabled:hover {
+  background: #f2f2f2;
+}
+
+
 @media screen and (min-width: 768px) {
   .review-exemplar {
     width: 254px;
@@ -132,9 +162,5 @@
 
   .review-exemplar {
     width: 421px;
-  }
-
-  .text-review {
-    height: 128px;
   }
 }
