@@ -12,6 +12,10 @@
     background-color: rgba(0, 0, 0, 0.25);
 }
 
+.prod-modal-window::-webkit-scrollbar {
+    display: none;  /* для Chrome, Safari, Opera */
+}
+
 .prod-modal-window{
     display: flex;
     margin: 64px auto;
@@ -22,14 +26,36 @@
     border-radius: 16px;
     gap: 24px;
     position: relative;
+    overflow: auto;
+    scrollbar-width: none;
+    /* для Firefox */
+    -ms-overflow-style: none;
+/* для IE и Edge */
+}
 } 
 
 .image-cont{
-    width: 580px;
-    height: 521px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
+width: 100%;
+height: auto;
+display: flex;
+flex-wrap: wrap;
+gap: 16px;
+justify-content: center;
+}
+
+.image-cont img:first-child {
+    width: 100%;
+    height: auto;
+    max-height: 308px;
+    border-radius: 8px;
+}
+
+.image-cont img:nth-child(2),
+.image-cont img:nth-child(3) {
+    width: calc(50% - 8px);
+    height: auto;
+    max-height: 197px;
+    border-radius: 8px;
 }
 
 .prod-info{
@@ -167,12 +193,6 @@ transition: opacity 0.4s ease;
 
 
 
-
-
-
-
-
-
    
    
 
@@ -199,17 +219,10 @@ transition: opacity 0.4s ease;
         justify-content: center;
     }
 
-    .image-cont img:first-child {
-        width: 100%;
-        height: auto;
-        border-radius: 8px;
-    }
-
     .image-cont img:nth-child(2),
     .image-cont img:nth-child(3) {
         width: calc(50% - 6px);
         height: auto;
-        border-radius: 8px;
     }
 
     .prod-info {
@@ -271,17 +284,10 @@ transition: opacity 0.4s ease;
         justify-content: center;
     }
 
-    .image-cont img:first-child {
-        width: 100%;
-        height: auto;
-        border-radius: 12px;
-    }
 
     .image-cont img:nth-child(2),
     .image-cont img:nth-child(3) {
         width: calc(50% - 8px);
-        height: auto;
-        border-radius: 8px;
     }
 
     .prod-info {
