@@ -5,21 +5,23 @@
         </div>
 
         <div class="popular-products-swiper">
-            <button class="popular-products__btn popular-products__btn--prev" type="button" disabled>
-                <svg width="24" height="24" viewBox="0 0 24 24">
-                    <path d="M15 6l-6 6 6 6" />
-                </svg>
-            </button>
-
             <div class="swiper popular-products__container">
                 <ul class="swiper-wrapper popular-products__list"></ul>
             </div>
 
-            <button class="popular-products__btn popular-products__btn--next" type="button">
-                <svg width="24" height="24" viewBox="0 0 24 24">
-                    <path d="M9 6l6 6-6 6" />
+            <div class="popular-products__nav">
+            <button class="popular-products__btn popular-products__btn--prev" type="button" disabled>
+                <svg width="24" height="24">
+                    <use href="./img/icons.svg#icon-left-arrow-alt"></use>
                 </svg>
             </button>
+
+            <button class="popular-products__btn popular-products__btn--next" type="button">
+                <svg width="24" height="24">
+                    <use href="./img/icons.svg#icon-right-arrow-alt"></use>
+                </svg>
+            </button>
+            </div>
         </div>
 
         <div class="popular-products__pagination"></div>

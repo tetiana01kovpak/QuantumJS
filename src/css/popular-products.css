@@ -1,12 +1,12 @@
 .popular-products-swiper {
-    display: flex;
     align-items: center;
     position: relative;
 }
 
 .popular-products__btn {
-    background: none;
-    border: none;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
     cursor: pointer;
     padding: 0.5rem;
 }
@@ -17,8 +17,8 @@
 }
 
 .popular-products__container {
-    flex: 1;
     overflow: hidden;
+    padding-bottom: 60px
 }
 
 .popular-products__list {
@@ -29,4 +29,52 @@
 .swiper-slide {
     list-style: none;
     flex: 0 0 auto;
+}
+
+.popular-products__title {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    text-align: center;
+    color: #080c09;
+    margin-bottom: 24px;
+}
+
+.popular-products__nav {
+    position: absolute;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.popular-products__btn {
+    background: #f2f2f2;
+    border: 1px solid #080c09;
+    border-radius: 100px;
+    padding: 12px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 20;
+}
+
+.popular-products__btn:disabled {
+    opacity: 0.3;
+    cursor: default;
+}
+
+.popular-products__btn:hover,
+.popular-products__btn:hover {
+    background-color: #975052;
+}
+
+.popular-products__btn:active,
+.popular-products__btn:active {
+    background-color: #6b0609;
 }

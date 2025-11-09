@@ -122,12 +122,6 @@
   transform: scale(1.2);
 }
 
-.swiper-slide {
-  width: auto !important;
-  height: auto;
-  box-sizing: border-box;
-}
-
 .swiper-wrapper {
   margin-right: 0;
   padding-right: 0;
@@ -219,5 +213,4 @@
   .text-review {
     width: 373px;
   }
-
 }
