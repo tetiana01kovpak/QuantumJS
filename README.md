@@ -37,8 +37,7 @@
   - [iziToast](https://izitoast.marcelodolce.com) — сповіщення про події
   - [Swiper.js](https://swiperjs.com) — слайдер для відгуків
   - [Accordion.js](https://github.com/michu2k/Accordion) — FAQ акордеон
-  - [CSS Star Rating](https://github.com/Bunlong/css-star-rating) — відображення
-    рейтингу
+  - [Raty.js](https://github.com/wbotelhos/raty) — відображення рейтингу
 
 ---
 

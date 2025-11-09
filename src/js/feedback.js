@@ -140,7 +140,8 @@ function handleResize() {
 export async function initReviews(page = 1) {
   try {
     const feedbacks = await loadFeedbacks(page);
-    allFeedbacks = feedbacks;
+  
+        allFeedbacks = feedbacks.slice(0, 10);
     currentPageIndex = 0;
 
     displayCurrentPage();
