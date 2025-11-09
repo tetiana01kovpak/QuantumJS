@@ -10,7 +10,11 @@
 
 .reviews-swiper {
   position: relative;
-  padding-bottom: 72px;
+  padding-bottom: 100px;
+}
+
+.js-review.swiper-wrapper {
+  padding-bottom: 100px;
 }
 
 .reviews-controls {
@@ -22,12 +26,23 @@
   justify-content: flex-end;
   align-items: center;
   padding: 0 16px;
+  z-index: 10;
+}
+
+.swiper-pagination,
+.nav-wrap {
+  pointer-events: all;
 }
 
 .review-exemplar {
   width: auto;
   padding: 0;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  flex-grow: 0;
+  justify-content: flex-start;
 }
 
 .swiper-pagination {
@@ -119,10 +134,6 @@
   padding-right: 0;
 }
 
-.container-review {
-  margin: 80px 0 48px 0;
-}
-
 .title-review {
   font-weight: 700;
   font-size: 36px;
@@ -137,6 +148,7 @@
   line-height: 160%;
   color: #080c09;
   margin-top: 24px;
+  margin-bottom: 80px;
 }
 
 .text-review {
@@ -169,25 +181,9 @@
   flex-shrink: 0;
 }
 
-.review-exemplar {
-  list-style: none;
-  width: 335px;
-  padding-right: 48px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  flex-grow: 1;
-  justify-content: space-between;
-}
-
 @media screen and (min-width: 768px) {
   .review-exemplar {
     width: 254px;
-  }
-
-  .review-exemplar-second {
-    display: block;
   }
 
   .review {
@@ -205,15 +201,15 @@
   .reviews .container {
     padding: 64px;
   }
-  
-  .review-exemplar-third {
-    display: block;
-  }
 
   .review-exemplar {
     width: auto;
     padding: 0;
     box-sizing: border-box;
+  }
+
+  .reviews-swiper {
+    padding-bottom: 120px;
   }
 
   .swiper-wrapper {
@@ -225,8 +221,4 @@
     width: 373px;
   }
 
-  .review .js-review .swiper-wrapper{
-  margin-top: 80px;
-  margin-bottom: 48px;
-  }
 }

@@ -109,9 +109,5 @@ export async function initReviews() {
  centerInsufficientSlides: true,
   });
 
-  // 2️⃣ Оновлюємо Swiper після вставки HTML
   swiper.update();
-
-  // 3️⃣ (Необов'язково) — якщо розмітка вставляється асинхронно
-  setTimeout(() => swiper.update(), 100);
 }
