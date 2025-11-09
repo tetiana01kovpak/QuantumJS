@@ -7,4 +7,4 @@
 // https://furniture-store-v2.b.goit.study/api/furniture?type=popular - картки з популярними товарами
 
 
-export const BASE_URL = "https://furniture-store-v2.b.goit.study/api/";
+export const BASE_URL = 'https://furniture-store-v2.b.goit.study/api/';

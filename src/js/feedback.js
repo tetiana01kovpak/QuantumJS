@@ -1,6 +1,7 @@
 import { BASE_URL } from './pixabay-api';
 import axios from 'axios';
 import { reviewsContainer, buttonReviewLeft, buttonReviewRight } from './refs';
+import iconsUrl from '../img/icons.svg';
 
 const END_POINT = 'feedbacks';
 
@@ -22,7 +23,7 @@ function getItemPerPage() {
 
 export async function loadFeedbacks(page = 1) {
   const response = await axios.get(`${BASE_URL}${END_POINT}`, {
-    params: { page },
+    params: { limit: 10, page },
   });
   return response.data.feedbacks;
 }
@@ -37,25 +38,22 @@ function renderStars(rating) {
   for (let i = 0; i < fullStars; i++) {
     starsHTML += `
       <svg width="20" height="20" class="star-icon">
-        <use href="../img/icons.svg#icon-star-fill"></use>
-      </svg>
-    `;
+        <use href="${iconsUrl}#icon-star-fill"></use>
+      </svg>`;
   }
 
   if (hasHalfStar) {
     starsHTML += `
       <svg width="20" height="20" class="star-icon">
-        <use href="../img/icons.svg#icon-star-half"></use>
-      </svg>
-    `;
+        <use href="${iconsUrl}#icon-star-half"></use>
+      </svg>`;
   }
 
   for (let i = 0; i < emptyStars; i++) {
     starsHTML += `
       <svg width="20" height="20" class="star-icon">
-        <use href="../img/icons.svg#icon-star-blank"></use>
-      </svg>
-    `;
+        <use href="${iconsUrl}#icon-star-blank"></use>
+      </svg>`;
   }
 
   return `<div class="review-stars">${starsHTML}</div>`;
