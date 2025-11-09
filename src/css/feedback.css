@@ -125,7 +125,6 @@
   background: #f2f2f2;
 }
 
-
 @media screen and (min-width: 768px) {
   .review-exemplar {
     width: 254px;
@@ -157,5 +156,8 @@
 
   .review-exemplar {
     width: 421px;
+  }
+  .text-review{
+    width: 373px;
   }
 }
