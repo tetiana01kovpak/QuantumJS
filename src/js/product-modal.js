@@ -1,5 +1,9 @@
-import { modalOverlay, modalWindow, closeBtn, furnitureList } from './refs';
-import { openOrderModal } from './order-modal.js';
+import {
+  modalOverlay,
+  modalWindow,
+  closeBtn,
+  popularListEl, 
+  productsListEl } from './refs';
 
 // === ОТКРЫТИЕ МОДАЛКИ ===
 function openModal(productData) {
@@ -70,30 +74,35 @@ window.addEventListener('keydown', e => {
 });
 
 // === ПЕРЕЙТИ ДО ЗАМОВЛЕННЯ ===
-furnitureList.addEventListener('click', () => {
+[popularListEl, productsListEl].forEach(listEl => {
+  if (!listEl) return;
+
+  listEl.addEventListener('click', e => {
+    const btn = e.target.closest('.product-card__btn');
+    if (!btn) return;
+
+    const card = btn.closest('.product-card');
+    const id = card.dataset.id;
+
+    // Завантажуємо деталі продукту та відкриваємо модалку
+    fetch(`https://furniture-store-v2.b.goit.study/api/furnitures/${id}`)
+      .then(res => res.json())
+      .then(data => openModal(data))
+      .catch(err => console.error('Помилка при завантаженні даних продукту:', err));
+  });
+});
+
+// === ПЕРЕЙТИ ДО ЗАМОВЛЕННЯ З МОДАЛКИ ===
+modalWindow.addEventListener('click', e => {
+  if (!e.target.closest('.order-btn')) return;
+
   const modelId = modalWindow.dataset.modelId;
-  if (!modelId) return; // product not loaded yet
+  if (!modelId) return;
+
   const color =
     modalWindow.querySelector('input[name="product-color"]:checked')?.value ||
     '';
+
   closeModal();
   openOrderModal({ modelId, color });
-});
-
-// === ОТКРЫТИЕ ПО КНОПКЕ “Детальніше” ===
-furnitureList.addEventListener('click', async e => {
-  const btn = e.target.closest('.product-card__btn');
-  if (!btn) return;
-  const card = btn.closest('.product-card');
-  const id = card.dataset.id;
-
-  try {
-    const res = await fetch(
-      `https://furniture-store-v2.b.goit.study/api/furnitures/${id}`
-    );
-    const data = await res.json();
-    openModal(data);
-  } catch (err) {
-    console.error('Помилка при завантаженні даних продукту:', err);
-  }
 });
