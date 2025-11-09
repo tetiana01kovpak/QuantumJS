@@ -1,4 +1,5 @@
 import { modalOverlay, modalWindow, closeBtn, furnitureList } from './refs';
+import { openOrderModal } from './order-modal.js';
 
 // === ОТКРЫТИЕ МОДАЛКИ ===
 function openModal(productData) {
@@ -69,9 +70,10 @@ window.addEventListener('keydown', e => {
 });
 
 // === ПЕРЕЙТИ ДО ЗАМОВЛЕННЯ ===
-furnitureList.addEventListener('click', () => {
+const orderButton = modalWindow.querySelector('.modal-sub-btn');
+orderButton?.addEventListener('click', () => {
   const modelId = modalWindow.dataset.modelId;
-  if (!modelId) return; // product not loaded yet
+  if (!modelId) return;
   const color =
     modalWindow.querySelector('input[name="product-color"]:checked')?.value ||
     '';
@@ -79,10 +81,11 @@ furnitureList.addEventListener('click', () => {
   openOrderModal({ modelId, color });
 });
 
-// === ОТКРЫТИЕ ПО КНОПКЕ “Детальніше” ===
+// === ОТКРЫТИЕ ПО КНОПКЕ "Детальніше" ===
 furnitureList.addEventListener('click', async e => {
   const btn = e.target.closest('.product-card__btn');
   if (!btn) return;
+
   const card = btn.closest('.product-card');
   const id = card.dataset.id;
 
