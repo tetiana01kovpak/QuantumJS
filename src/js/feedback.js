@@ -8,13 +8,9 @@ import { BASE_URL } from './pixabay-api';
 import iconsUrl from '../img/icons.svg';
 
 
-
-
 // Селектори / константи
 const ROOT = '.reviews-swiper';  // контейнер Swiper
 const LIST = '.review.js-review';     // <ul class="review js-review"> 
-const STAR_FULL = 'icon-star-fill';
-const STAR_HALF = 'icon-star-half';
 // DOM
 const rootEl = document.querySelector(ROOT);
 const listEl = document.querySelector(LIST);
@@ -39,23 +35,40 @@ function normalizeItem(raw) {
 const icon = (id, extra = '') =>
  `<svg class="star-icon ${extra}" width="20" height="20" aria-hidden="true"><use href="${iconsUrl}#${id}"></use></svg>`;
 // Розмітка зірок (повні / половинка / «порожні» як тьмяні)
-function stars(rate) {
- const v = Math.max(0, Math.min(5, Number(rate) || 0));
- const full = Math.floor(v);
- const half = v - full >= 0.5 ? 1 : 0;
- const empty = 5 - full - half;
- return `
-  <div class="review-stars" data-rating="${v}" aria-label="Рейтинг ${v} з 5">
-   ${Array.from({ length: full }, () => icon(STAR_FULL)).join('')}
-   ${half ? icon(STAR_HALF) : ''}
-   ${Array.from({ length: empty }, () => icon(STAR_FULL, 'is-empty')).join('')}
-  </div>
- `;
+function renderStars(rating) {
+  const fullStars = Math.floor(rating);
+  const hasHalfStar = rating % 1 >= 0.5;
+  const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+
+  let starsHTML = '';
+
+  for (let i = 0; i < fullStars; i++) {
+    starsHTML += `
+      <svg width="20" height="20" class="star-icon" aria-hidden="true">
+        <use href="${iconsUrl}#icon-star-fill"></use>
+      </svg>`;
+  }
+
+  if (hasHalfStar) {
+    starsHTML += `
+      <svg width="20" height="20" class="star-icon" aria-hidden="true">
+        <use href="${iconsUrl}#icon-star-half"></use>
+      </svg>`;
+  }
+
+  for (let i = 0; i < emptyStars; i++) {
+    starsHTML += `
+      <svg width="20" height="20" class="star-icon is-empty" aria-hidden="true">
+        <use href="${iconsUrl}#icon-star-blank"></use>
+      </svg>`;
+  }
+
+  return `<div class="review-stars" data-rating="${rating}" aria-label="Рейтинг ${rating} з 5">${starsHTML}</div>`;
 }
 // Шаблон слайду
 const itemTpl = ({ rate, text, name }) => `
  <li class="review-exemplar swiper-slide">
-  ${stars(rate)}
+  ${renderStars(rate)}
   <p class="text-review">“${text}”</p>
   <p class="review-author">${name}</p>
  </li>
