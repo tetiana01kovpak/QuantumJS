@@ -1,4 +1,4 @@
-import { loadFeedbacks, renderFeedbacks, initReviews } from './js/feedback';
+import { initReviews } from './js/feedback.js'; 
 
 initReviews();
 import { toggleNavMenu } from './js/header';

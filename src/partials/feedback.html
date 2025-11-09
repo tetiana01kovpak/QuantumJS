@@ -1,57 +1,34 @@
-<section class="reviews">
+<section class="reviews" id="feedback">
   <div class="container">
     <h2 class="title-review">Відгуки клієнтів</h2>
     <p class="paragraf-reviews">
       Дізнайтеся, що кажуть наші задоволені клієнти про нашу меблі.
     </p>
 
-    <div class="container-review" id="feedback">
-      <ul class="js-review review">
-        <li class="review-exemplar review-exemplar-first">
-          <div class="review-stars" data-raty></div>
-            <p class="text-review">
-          "Дуже задоволена покупкою! Диван не тільки стильний, а й неймовірно
-          зручний. Доставка була швидкою, все без жодної подряпини."
-            </p>
-            <p class="review-author">Олена Коваль</p>
-        </li>
+    <div class="reviews-content">
+      <div class="reviews-swiper swiper">
+        <ul class="review js-review swiper-wrapper" role="list"></ul>
+        
+        
+        <div class="reviews-controls">
+          <div class="swiper-pagination"></div>
+          <div class="nav-wrap">
+            <button class="swiper-button-prev" type="button" aria-label="Попередній">
+              <svg width="24" height="24">
+                <use href="./img/icons.svg#icon-left-arrow-alt"></use>
+              </svg>
+            </button>
 
-        <li class="review-exemplar review-exemplar-second">
-          <div class="review-stars" data-raty></div>
-            <p class="text-review">
-              "Замовляв шафу й ліжко — все приїхало раніше терміну. Якість
-              перевершила очікування, збирання зайняло мінімум часу."
-            </p>
-            <p class="review-author">Андрій Шевченко</p>
-        </li>
+            <button class="swiper-button-next" type="button" aria-label="Наступний">
+              <svg width="24" height="24">
+                <use href="./img/icons.svg#icon-right-arrow-alt"></use>
+              </svg>
+            </button>
+          </div>
 
-        <li class="review-exemplar review-exemplar-third">
-          <div class="review-stars" data-raty ></div>
-            <p class="text-review">
-              "Нарешті знайшли меблі, які ідеально вписались у наш інтер'єр. Сайт
-              зручний, підтримка завжди на зв'язку."
-            </p>
-            <p class="review-author">Іванна Петренко</p>
-        </li>
-      </ul>
-    </div>
-
-      <div class="swiper mySwiper">
-      <div class="swiper-wrapper">
-      <div class="swiper-slide"></div>
-      </div>
-      <div class="scroll">
-        <button class="button-review-left">
-          <svg width="24" height="24">
-          <use href="./img/icons.svg#icon-left-arrow-alt"></use>
-          </svg>
-        </button>
-        <button class="button-review-right">
-          <svg width="24" height="24">
-          <use href="./img/icons.svg#icon-right-arrow-alt"></use>
-          </svg>
-        </button>
+        </div>
       </div>
     </div>
+    <!-- /reviews-content -->
   </div>
 </section>

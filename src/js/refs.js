@@ -7,6 +7,7 @@ export const reviewsContainer = document.querySelector('.js-review');
 export const containerWthStars = document.querySelector('.review-stars');
 export const buttonReviewLeft = document.querySelector('.button-review-left');
 export const buttonReviewRight = document.querySelector('.button-review-right');
+export const wrapper = document.querySelector('.swiper-wrapper');
 export const categoriesListEl = document.querySelector(
   '.furniture-categories__list'
 );

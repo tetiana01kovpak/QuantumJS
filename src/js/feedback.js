@@ -1,159 +1,117 @@
-import { BASE_URL } from './pixabay-api';
+import Swiper from 'swiper';
+import { Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import axios from 'axios';
-import { reviewsContainer, buttonReviewLeft, buttonReviewRight } from './refs';
-import iconsUrl from '../img/icons.svg';
+import { BASE_URL } from './pixabay-api';
 
-const END_POINT = 'feedbacks';
 
-let allFeedbacks = [];
-let currentPageIndex = 0;
-
-function getItemPerPage() {
-  const width = window.innerWidth;
-  if (width < 768) {
-    return 1;
-  }
-  if (width >= 768 && width < 1440) {
-    return 2;
-  }
-  if (width >= 1440) {
-    return 3;
-  }
+// Селектори / константи
+const ROOT = '.reviews-swiper';  // контейнер Swiper
+const LIST = '.review.js-review';     // <ul class="review js-review">
+const SPRITE = './img/icons.svg';     // шлях до спрайта
+const STAR_FULL = 'icon-star-fill';
+const STAR_HALF = 'icon-star-half';
+// DOM
+const rootEl = document.querySelector(ROOT);
+const listEl = document.querySelector(LIST);
+// API endpoint
+const API_URL = `${BASE_URL}${BASE_URL.endsWith('/') ? '' : '/'}feedbacks`;
+// Округлення рейтингу за ТЗ
+function roundRating(n) {
+ const r = Number(n) || 0;
+ if (r > 3.3 && r <= 3.7) return 3.5;
+ if (r >= 3.8 && r <= 4.2) return 4;
+ return Math.round(r * 2) / 2; // крок 0.5
 }
-
-export async function loadFeedbacks(page = 1) {
-  const response = await axios.get(`${BASE_URL}${END_POINT}`, {
-    params: { limit: 10, page },
-  });
-  return response.data.feedbacks;
+// Нормалізація даних з бекенду
+function normalizeItem(raw) {
+ return {
+  rate: roundRating(raw.rate ?? raw.rating ?? raw.stars ?? 0),
+  text: String(raw.descr ?? raw.comment ?? raw.text ?? ''),
+  name: String(raw.name ?? raw.author ?? 'Анонім'),
+ };
 }
-
-function renderStars(rating) {
-  const fullStars = Math.floor(rating);
-  const hasHalfStar = rating % 1 >= 0.5;
-  const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
-
-  let starsHTML = '';
-
-  for (let i = 0; i < fullStars; i++) {
-    starsHTML += `
-      <svg width="20" height="20" class="star-icon">
-        <use href="${iconsUrl}#icon-star-fill"></use>
-      </svg>`;
-  }
-
-  if (hasHalfStar) {
-    starsHTML += `
-      <svg width="20" height="20" class="star-icon">
-        <use href="${iconsUrl}#icon-star-half"></use>
-      </svg>`;
-  }
-
-  for (let i = 0; i < emptyStars; i++) {
-    starsHTML += `
-      <svg width="20" height="20" class="star-icon">
-        <use href="${iconsUrl}#icon-star-blank"></use>
-      </svg>`;
-  }
-
-  return `<div class="review-stars">${starsHTML}</div>`;
+// Іконка зі спрайта
+const icon = (id, extra = '') =>
+ `<svg class="star-icon ${extra}" width="20" height="20" aria-hidden="true"><use href="${SPRITE}#${id}"></use></svg>`;
+// Розмітка зірок (повні / половинка / «порожні» як тьмяні)
+function stars(rate) {
+ const v = Math.max(0, Math.min(5, Number(rate) || 0));
+ const full = Math.floor(v);
+ const half = v - full >= 0.5 ? 1 : 0;
+ const empty = 5 - full - half;
+ return `
+  <div class="review-stars" data-rating="${v}" aria-label="Рейтинг ${v} з 5">
+   ${Array.from({ length: full }, () => icon(STAR_FULL)).join('')}
+   ${half ? icon(STAR_HALF) : ''}
+   ${Array.from({ length: empty }, () => icon(STAR_FULL, 'is-empty')).join('')}
+  </div>
+ `;
 }
-
-export function rating(rating) {
-  if (rating > 3.3 && rating <= 3.7) {
-    return 3.5;
-  }
-  if (rating >= 3.8 && rating <= 4.2) return 4;
-  return Math.round(rating);
+// Шаблон слайду
+const itemTpl = ({ rate, text, name }) => `
+ <li class="review-exemplar swiper-slide">
+  ${stars(rate)}
+  <p class="text-review">“${text}”</p>
+  <p class="review-author">${name}</p>
+ </li>
+`;
+// Завантажити до 10 відгуків
+export async function loadFeedbacks(limit = 10) {
+ try {
+  const { data } = await axios.get(API_URL, { params: { limit } });
+  const arr = data?.feedbacks ?? data?.items ?? data?.data ?? data ?? [];
+  return Array.isArray(arr) ? arr.slice(0, limit).map(normalizeItem) : [];
+ } catch (e) {
+  console.error('Помилка при завантаженні відгуків:', e);
+  return [];
+ }
 }
-
-export function renderFeedbacks(feedbacks) {
-  return feedbacks
-    .map(({ rate, descr, name }) => {
-      const normalizedRate = rating(rate);
-      return `
-    <li class="review-exemplar">
-      ${renderStars(normalizedRate)}
-      <p class="text-review">${descr}</p>
-      <p class="review-author">${name}</p>
-    </li>
-  `;
-    })
-    .join('');
+// Рендер списку
+export function renderFeedbacks(items) {
+ if (!listEl) return;
+ listEl.classList.add('swiper-wrapper');
+ listEl.innerHTML = items.length
+  ? items.map(itemTpl).join('')
+  : `<li class="review-exemplar swiper-slide">
+     <p class="text-review">Наразі відгуків немає.</p>
+     <p class="review-author">—</p>
+    </li>`;
 }
-
-function displayCurrentPage() {
-  const perPage = getItemPerPage();
-  const startIndex = currentPageIndex * perPage;
-  const endIndex = startIndex + perPage;
-  const currentPageFeedbacks = allFeedbacks.slice(startIndex, endIndex);
-
-  reviewsContainer.innerHTML = '';
-  reviewsContainer.insertAdjacentHTML('beforeend', renderFeedbacks(currentPageFeedbacks));
-
-  updateButtonStates();
-}
-
-function updateButtonStates() {
-  const perPage = getItemPerPage();
-  const totalPages = Math.ceil(allFeedbacks.length / perPage);
-
-  if (buttonReviewLeft) {
-    buttonReviewLeft.disabled = currentPageIndex === 0;
-  }
-
-  if (buttonReviewRight) {
-    buttonReviewRight.disabled = currentPageIndex >= totalPages - 1;
-  }
-}
-
-
-function goToPreviousPage() {
-  if (currentPageIndex > 0) {
-    currentPageIndex--;
-    displayCurrentPage();
-  }
-}
-function goToNextPage() {
-  const perPage = getItemPerPage();
-  const totalPages = Math.ceil(allFeedbacks.length / perPage);
-
-  if (currentPageIndex < totalPages - 1) {
-    currentPageIndex++;
-    displayCurrentPage();
-  }
-}
-
-function handleResize() {
-  const perPage = getItemPerPage();
-  const totalPages = Math.ceil(allFeedbacks.length / perPage);
-
-  if (currentPageIndex >= totalPages) {
-    currentPageIndex = Math.max(0, totalPages - 1);
-  }
-
-  displayCurrentPage();
-}
-
-export async function initReviews(page = 1) {
-  try {
-    const feedbacks = await loadFeedbacks(page);
+// Ініціалізація секції
+export async function initReviews() {
+ if (!rootEl || !listEl) return;
+ const items = await loadFeedbacks(10);
+  renderFeedbacks(items);
   
-        allFeedbacks = feedbacks.slice(0, 10);
-    currentPageIndex = 0;
+ // 1/2/3 картки на брейкпоінтах; стрілки праворуч; булети зліва
+ const swiper = new Swiper(ROOT, {
+    modules: [Navigation, Pagination],
+    slidesPerView: 1,
+    slidesPerGroup: 1,
+    spaceBetween: 24,
+    watchOverflow: true,
+    centeredSlides: false,
+    loop: false,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+      renderBullet: (i, className) =>
+        `<button class="${className}" type="button" aria-label="Перейти до відгуку ${i + 1}"></button>`,
+  },
+  navigation: {
+   nextEl: '.swiper-button-next',
+   prevEl: '.swiper-button-prev',
+   disabledClass: 'is-disabled',
+  },
+  breakpoints: {
+  768: { slidesPerView: 2, slidesPerGroup: 2, spaceBetween: 24 },
+  1440: { slidesPerView: 3, slidesPerGroup: 3, spaceBetween: 32 },
+  },
+ });
+  setSlideWidths(swiper);
 
-    displayCurrentPage();
-
-    if (buttonReviewLeft) {
-      buttonReviewLeft.addEventListener('click', goToPreviousPage);
-    }
-
-    if (buttonReviewRight) {
-      buttonReviewRight.addEventListener('click', goToNextPage);
-    }
-
-    window.addEventListener('resize', handleResize);
-  } catch (error) {
-    console.error('Помилка при завантаженні відгуків:', error);
-  }
+  window.addEventListener('resize', () => setSlideWidths(swiper));
 }
