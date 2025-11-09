@@ -1,4 +1,5 @@
 import { modalOverlay, modalWindow, closeBtn, furnitureList } from './refs';
+import { openOrderModal } from './order-modal.js';
 
 // === ОТКРЫТИЕ МОДАЛКИ ===
 function openModal(productData) {
