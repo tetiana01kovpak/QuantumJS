@@ -5,14 +5,14 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import axios from 'axios';
 import { BASE_URL } from './pixabay-api';
+import iconsUrl from '../img/icons.svg';
 
 
 
 
 // Селектори / константи
 const ROOT = '.reviews-swiper';  // контейнер Swiper
-const LIST = '.review.js-review';     // <ul class="review js-review">
-const SPRITE = '../img/icons.svg';     // шлях до спрайта
+const LIST = '.review.js-review';     // <ul class="review js-review"> 
 const STAR_FULL = 'icon-star-fill';
 const STAR_HALF = 'icon-star-half';
 // DOM
@@ -37,7 +37,7 @@ function normalizeItem(raw) {
 }
 // Іконка зі спрайта
 const icon = (id, extra = '') =>
- `<svg class="star-icon ${extra}" width="20" height="20" aria-hidden="true"><use href="${SPRITE}#${id}"></use></svg>`;
+ `<svg class="star-icon ${extra}" width="20" height="20" aria-hidden="true"><use href="${iconsUrl}#${id}"></use></svg>`;
 // Розмітка зірок (повні / половинка / «порожні» як тьмяні)
 function stars(rate) {
  const v = Math.max(0, Math.min(5, Number(rate) || 0));
