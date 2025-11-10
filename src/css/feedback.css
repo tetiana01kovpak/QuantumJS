@@ -55,8 +55,7 @@
   z-index: 10;
 }
 
-.reviews__btn--prev,
-.reviews__btn--next {
+.reviews__btn {
   background: #f2f2f2;
   border: 1px solid #080c09;
   border-radius: 100px;
@@ -70,32 +69,26 @@
   transition: background-color 0.3s;
 }
 
-.reviews__btn--prev:hover,
-.reviews__btn--next:hover {
+.reviews__btn:hover {
   background-color: #975052;
 }
 
-.reviews__btn--prev svg use,
-.reviews__btn--next svg use {
+.reviews__btn svg use {
   fill: #080c09;
   transition: fill 0.3s;
 }
 
-.reviews__btn--prev:hover svg use,
-.reviews__btn--next:hover svg use,
-.reviews__btn--prev:active svg use,
-.reviews__btn--next:active svg use {
+.reviews__btn:hover svg use,
+.reviews__btn:active svg use {
   fill: #fff;
 }
 
-.reviews__btn--prev:active,
-.reviews__btn--next:active {
+.reviews__btn:active {
   background-color: #6b0609;
 }
 
-.reviews__btn--prev:disabled,
-.reviews__btn--next:disabled {
-  opacity: 0.3;
+.reviews__btn:disabled {
+  opacity: 0.5;
   cursor: not-allowed;
   pointer-events: none;
 }

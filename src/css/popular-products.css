@@ -64,12 +64,10 @@
   cursor: default;
 }
 
-.popular-products__btn:hover,
 .popular-products__btn:hover {
   background-color: #975052;
 }
 
-.popular-products__btn:active,
 .popular-products__btn:active {
   background-color: #6b0609;
 }
@@ -77,4 +75,20 @@
 .swiper-pagination-bullet.swiper-pagination-bullet-active {
   background-color: #080c09;
   opacity: 1;
+}
+
+.popular-products__btn svg use {
+  fill: #080c09;
+  transition: fill 0.3s;
+}
+
+.popular-products__btn:hover svg use,
+.popular-products__btn:active svg use {
+  fill: #fff;
+}
+
+.popular-products__btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
 }
