@@ -37,7 +37,7 @@ popular products css- .popular-products-swiper {
   line-height: 1.2;
   letter-spacing: 0.01em;
   text-align: center;
-  color: #080C09;
+  color: #080c09;
   margin-bottom: 24px;
 }
 
@@ -50,8 +50,8 @@ popular products css- .popular-products-swiper {
 }
 
 .popular-products__btn {
-  background: #F2F2F2;
-  border: 1px solid #080C09;
+  background: #f2f2f2;
+  border: 1px solid #080c09;
   border-radius: 100px;
   padding: 12px;
   width: 48px;
@@ -76,7 +76,7 @@ popular products css- .popular-products-swiper {
 }
 
 .popular-products__btn svg use {
-  fill: #080C09;
+  fill: #080c09;
   transition: fill 0.3s;
 }
 
@@ -87,7 +87,7 @@ popular products css- .popular-products-swiper {
 
 .popular-products__btn:active,
 .popular-products__btn:active {
-  background-color: #6B0609;
+  background-color: #6b0609;
 }
 
 .review {
@@ -125,8 +125,8 @@ popular products css- .popular-products-swiper {
 }
 
 .reviews__pagination .swiper-pagination-bullet {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   background: #bbb;
   border-radius: 50%;
   opacity: 0.5;
@@ -149,8 +149,8 @@ popular products css- .popular-products-swiper {
 
 .reviews__btn--prev,
 .reviews__btn--next {
-  background: #F2F2F2;
-  border: 1px solid #080C09;
+  background: #f2f2f2;
+  border: 1px solid #080c09;
   border-radius: 100px;
   padding: 12px;
   width: 48px;
@@ -167,10 +167,9 @@ popular products css- .popular-products-swiper {
   background-color: #975052;
 }
 
-/* ensure arrow icons are dark by default and transition to white on hover/active */
 .reviews__btn--prev svg use,
 .reviews__btn--next svg use {
-  fill: #080C09;
+  fill: #080c09;
   transition: fill 0.3s;
 }
 
@@ -181,20 +180,19 @@ popular products css- .popular-products-swiper {
   fill: #fff;
 }
 
-/* active button background color */
 .reviews__btn--prev:active,
 .reviews__btn--next:active {
-  background-color: #6B0609;
+  background-color: #6b0609;
 }
 
 .swiper-button-prev:active,
 .swiper-button-next:active {
-  background-color: #6B0609;
+  background-color: #6b0609;
 }
 
 .swiper-button-prev svg use,
 .swiper-button-next svg use {
-  fill: #080C09;
+  fill: #080c09;
   transition: fill 0.3s;
 }
 
@@ -222,14 +220,14 @@ popular products css- .popular-products-swiper {
   font-size: 36px;
   line-height: 120%;
   letter-spacing: 0.01em;
-  color: #080C09;
+  color: #080c09;
 }
 
 .reviews__description {
   font-weight: 400;
   font-size: 18px;
   line-height: 160%;
-  color: #080C09;
+  color: #080c09;
   margin-top: 24px;
   margin-bottom: 80px;
 }
@@ -262,6 +260,13 @@ popular products css- .popular-products-swiper {
   width: 20px;
   height: 20px;
   flex-shrink: 0;
+}
+
+.reviews__btn--prev.is-disabled,
+.reviews__btn--next.is-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 @media screen and (min-width: 768px) {

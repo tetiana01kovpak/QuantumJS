@@ -8,7 +8,6 @@ import { BASE_URL } from './pixabay-api';
 import iconsUrl from '../img/icons.svg';
 import { Nextbtn, Prevbtn, paginationE2 } from './refs.js';
 
-
 // ---- СЕЛЕКТОРИ ----
 const ROOT = '.reviews__container'; // головний контейнер Swiper
 const LIST = '.reviews__list.js-review';
@@ -76,25 +75,46 @@ function renderFeedbacks(items) {
 // ---- ІНІЦІАЛІЗАЦІЯ SWIPER ----
 export async function initReviews() {
   if (!rootEl || !listEl) return;
+
   const items = await loadFeedbacks(10);
   renderFeedbacks(items);
+
   const swiper = new Swiper(ROOT, {
     modules: [Navigation, Pagination],
     slidesPerView: 1,
+    slidesPerGroup: 1,
     spaceBetween: 24,
     loop: false,
+
     navigation: {
-      nextEl: Nextbtn,
-      prevEl: Prevbtn,
+      nextEl: '.reviews__btn--next',
+      prevEl: '.reviews__btn--prev',
+      disabledClass: 'is-disabled',
     },
+
     pagination: {
-      el: paginationE2,
+      el: '.reviews__pagination',
       clickable: true,
       type: 'bullets',
     },
+
     breakpoints: {
-      768: { slidesPerView: 2, slidesPerGroup: 2, spaceBetween: 24 },
-      1440: { slidesPerView: 3, slidesPerGroup: 3, spaceBetween: 32 },
+      768: { slidesPerView: 2, slidesPerGroup: 1, spaceBetween: 24 },
+      1440: { slidesPerView: 3, slidesPerGroup: 1, spaceBetween: 32 },
     },
   });
+
+  swiper.navigation.init();
+  swiper.navigation.update();
+
+  const prevBtn = document.querySelector('.reviews__btn--prev');
+  const nextBtn = document.querySelector('.reviews__btn--next');
+
+  const updateNavState = () => {
+    prevBtn.disabled = swiper.isBeginning;
+    nextBtn.disabled = swiper.isEnd;
+  };
+
+  updateNavState();
+  swiper.on('slideChange', updateNavState);
 }

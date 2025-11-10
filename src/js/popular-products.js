@@ -5,7 +5,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { popularListEl, btnPrev, btnNext, paginationEl } from './refs.js';
-import {BASE_URL} from './pixabay-api.js';
+import { BASE_URL } from './pixabay-api.js';
 
 const priceUA = v => new Intl.NumberFormat('uk-UA').format(v) + ' грн';
 const colors = a =>
@@ -17,7 +17,9 @@ const colors = a =>
 const card = ({ _id, name, images = [], price, color = [] }) => `
 <li class="swiper-slide product-card" data-id="${_id}">
   <div class="product-card__media">
-    <img class="product-card__img" src="${images[0] || ''}" alt="${name}" loading="lazy">
+    <img class="product-card__img" src="${
+      images[0] || ''
+    }" alt="${name}" loading="lazy">
   </div>
   <div class="product-card__body">
     <h3 class="product-card__title" title="${name}">${name}</h3>
@@ -65,15 +67,15 @@ async function initPopularProducts() {
       },
       watchOverflow: true,
       on: {
-    init: function() {
-      btnPrev.disabled = this.isBeginning;
-      btnNext.disabled = this.isEnd;
-    },
-    slideChange: function() {
-      btnPrev.disabled = this.isBeginning;
-      btnNext.disabled = this.isEnd;
-    },
-  },
+        init: function () {
+          btnPrev.disabled = this.isBeginning;
+          btnNext.disabled = this.isEnd;
+        },
+        slideChange: function () {
+          btnPrev.disabled = this.isBeginning;
+          btnNext.disabled = this.isEnd;
+        },
+      },
     });
 
     // Ініціалізація кнопок
