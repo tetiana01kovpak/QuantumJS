@@ -120,7 +120,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    gap: 80px;
+    gap: 66px;
     padding: 0 64px;
   }
 
@@ -143,8 +143,6 @@
     white-space: nowrap;
     line-height: 1;
     text-align: left;
-    margin-left: 32px;
-    margin-right: 32px;
   }
 
   .footer-nav {

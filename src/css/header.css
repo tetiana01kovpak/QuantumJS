@@ -158,7 +158,7 @@ html {
   .nav-links-list .button {
     width: 185px;
     height: 42px;
-    padding: 8px 43px;
+    padding: 8px 46px;
   }
 
   .nav-links-list {
@@ -210,5 +210,11 @@ html {
   .header-nav-link:hover,
   .header-nav-link:focus {
     color: #6b0609;
+  }
+
+  .nav-links-list .button {
+    width: 132px;
+    height: 42px;
+    padding: 8px 20px;
   }
 }
