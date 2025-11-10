@@ -9,7 +9,7 @@ export const buttonReviewLeft = document.querySelector('.button-review-left');
 export const buttonReviewRight = document.querySelector('.button-review-right');
 export const wrapper = document.querySelector('.swiper-wrapper');
 export const Nextbtn = document.querySelector('.reviews__btn--next');
-export const Prevbtn = document.querySelector('.popular-products__btn--prev');
+export const Prevbtn = document.querySelector('.reviews__btn--prev');
 export const paginationE2 = document.querySelector('.reviews__pagination');
 
 export const categoriesListEl = document.querySelector(
