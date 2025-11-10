@@ -35,6 +35,8 @@
 
 .hero-button {
   max-width: 335px;
+  width: 100%;
+  height: auto;
 }
 
 /* tablet */
