@@ -5,6 +5,7 @@
 .popular-products-swiper {
   align-items: center;
   position: relative;
+  padding-bottom: 24px;
 }
 
 .popular-products__btn {
