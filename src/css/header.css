@@ -20,6 +20,7 @@ html {
 
 .logo-header {
   height: 35px;
+  width: 100%;
 }
 
 .overlay {
@@ -66,6 +67,10 @@ html {
   justify-content: space-between;
   padding-top: 17px;
   padding-bottom: 17px;
+  max-width: 375px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
 
 .close-btn,
@@ -143,6 +148,7 @@ html {
     right: 0;
     left: auto;
     background-color: rgba(8, 12, 9, 50%);
+    z-index: 998;
   }
 
   .header.menu-open .header-nav {
@@ -184,7 +190,6 @@ html {
   .header {
     position: relative;
   }
-  
 
   .overlay {
     display: block;
@@ -195,7 +200,7 @@ html {
   .header-nav {
     display: block;
   }
-  
+
   .nav-links-list {
     flex-direction: row;
     gap: 32px;
@@ -206,6 +211,7 @@ html {
   .header-nav-link {
     font-weight: inherit;
     font-size: inherit;
+    width: max-content;
   }
 
   .header-nav-link:hover,

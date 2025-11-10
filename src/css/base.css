@@ -10,11 +10,12 @@ body {
   color: #080c09;
   background-color: #fff;
 }
-
+.section {
+  padding: 0 20px;
+}
 .button {
   display: block;
   text-align: center;
-  border: 1px solid #6b0609;
   box-shadow: 0 1px 2px 0 rgba(8, 12, 9, 0.05),
     inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(8, 12, 9, 0.15),
     inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
@@ -35,4 +36,22 @@ body {
     inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
   background-color: #6b0609;
   opacity: 0.5;
+}
+
+@media only screen and (min-width: 768px) {
+  .section {
+    padding: 0 32px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .section {
+    padding: 0 64px;
+  }
+}
+
+@media only screen and (max-width: 374px) {
+  .section {
+    padding: 0 20px;
+  }
 }

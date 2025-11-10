@@ -1,124 +1,113 @@
 .hero {
-background-image: url(../img/hero-mob.webp);
-background-size: cover;
-padding-top: 136px;
-padding-bottom: 136px;
-
+  background-image: url(../img/hero-mob.webp);
+  background-size: cover;
+  padding-top: 136px;
+  padding-bottom: 136px;
 }
 
 @media screen and (min-resolution: 2x) {
-    .hero {
+  .hero {
     background-image: url(../img/hero-mob@2x.webp);
     background-size: cover;
-    }
+  }
 }
 
 .hero-title {
-font-weight: 700;
-font-size: 40px;
-line-height: 120%;
-letter-spacing: 0.01em;
-color: #fff;
-width: 335px;
-height: 96px;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 120%;
+  letter-spacing: 0.01em;
+  color: #fff;
+  width: 335px;
+  height: 96px;
 }
 
 .hero-description {
-font-weight: 400;
-font-size: 18px;
-line-height: 1.6;
-color: #fff;
-margin-top: 24px;
-margin-bottom: 32px;
-width: 335px;
-height: 145px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #fff;
+  margin-top: 24px;
+  margin-bottom: 32px;
+  width: 335px;
+  height: auto;
 }
 
 .hero-button {
-border-radius: 100px;
-border: none;
-padding: 10px 24px;
-width: 335px;
-height: 46px;
-box-shadow: 0 1px 2px 0 rgba(8, 12, 9, 0.05), inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(8, 12, 9, 0.15), inset 0 2px 1px 0 rgba(255, 255, 255, 0.25), inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
-background: #6b0609;
-font-weight: 500;
-font-size: 16px;
-line-height: 160%;
-color: #fff;
+  max-width: 335px;
 }
-
-.hero-button:focus {
-opacity: 0.5;
-}
-
 
 /* tablet */
 @media screen and (min-width: 768px) {
-
-.hero {
+  .hero {
     background-image: url(../img/hero-tab.webp);
     background-size: cover;
     padding-top: 80px;
     padding-bottom: 80px;
-}
+  }
 
-@media screen and (min-resolution: 2x) {
+  @media screen and (min-resolution: 2x) {
     .hero {
-    background-image: url(../img/hero-tab@2x.webp);
-    background-size: cover;
+      background-image: url(../img/hero-tab@2x.webp);
+      background-size: cover;
     }
-}
+  }
 
-.hero-title {
-width: 560px;
-height: 48px;
-}
+  .hero-title {
+    width: 560px;
+    height: 48px;
+  }
 
-.hero-description {
-width: 560px;
-height: 87px;
-}
+  .hero-description {
+    width: 560px;
+    height: 87px;
+  }
 
-.hero-button {
-width: 209px;
-}
+  .hero-button {
+    width: 209px;
+  }
 
-.hero-button:focus {
-opacity: 0.5;
-}
+  .hero-button:focus {
+    opacity: 0.5;
+  }
 }
 
 /* desktop */
 @media screen and (min-width: 1440px) {
-
-.hero {
+  .hero {
     background-image: url(../img/hero-desk.webp);
     background-size: cover;
     padding-top: 92px;
     padding-bottom: 92px;
-}
+  }
 
-@media screen and (min-resolution: 2x) {
+  @media screen and (min-resolution: 2x) {
     .hero {
-    background-image: url(../img/hero-desk@2x.webp);
-    background-size: cover;
+      background-image: url(../img/hero-desk@2x.webp);
+      background-size: cover;
     }
+  }
+
+  .hero-title {
+    font-size: 56px;
+    width: 560px;
+    height: 134px;
+  }
+
+  .hero-description {
+    width: 560px;
+    height: 87px;
+  }
 }
 
-.hero-title {
-font-size: 56px;
-width: 560px;
-height: 134px;
-}
+@media only screen and (max-width: 374px) {
+  .hero-description {
+    width: 100%;
+  }
 
-.hero-description {
-width: 560px;
-height: 87px;
-}
-
-.hero-button:hover,
-.hero-button:focus{
-opacity: 0.5;
-}
+  .hero-title {
+    max-width: 335px;
+    width: 100%;
+    height: auto;
+  }
 }
