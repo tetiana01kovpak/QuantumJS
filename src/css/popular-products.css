@@ -16,10 +16,6 @@
   cursor: default;
 }
 
-.popular-products__container {
-  overflow: visible;
-}
-
 .popular-products__list {
   display: flex;
   margin-bottom: 48px;

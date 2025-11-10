@@ -55,7 +55,7 @@ async function initPopularProducts() {
         type: 'bullets',
       },
       breakpoints: {
-        768: { slidesPerView: 2, slidesPerGroup: 2, spaceBetween: 16 },
+        768: { slidesPerView: 2, slidesPerGroup: 2, spaceBetween: 24 },
         1440: { slidesPerView: 4,slidesPerGroup: 4, spaceBetween: 24 },
       },
       on: {
