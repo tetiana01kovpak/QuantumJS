@@ -30,15 +30,13 @@ line-height: 1.6;
 color: #fff;
 margin-top: 24px;
 margin-bottom: 32px;
-
-height: 145px;
 }
 
 .hero-button {
+display: inline-block;
 border-radius: 100px;
 border: none;
 padding: 10px 24px;
-width: 335px;
 height: 46px;
 box-shadow: 0 1px 2px 0 rgba(8, 12, 9, 0.05), inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(8, 12, 9, 0.15), inset 0 2px 1px 0 rgba(255, 255, 255, 0.25), inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
 background: #6b0609;
@@ -46,6 +44,7 @@ font-weight: 500;
 font-size: 16px;
 line-height: 160%;
 color: #fff;
+text-align: center;
 }
 
 .hero-button:focus {
@@ -54,6 +53,10 @@ opacity: 0.5;
 
 @media screen and (min-width: 375px) {
     .hero-description {
+        width: 335px;
+        height: 145px;
+    }
+    .hero-button {
         width: 335px;
     }
 }

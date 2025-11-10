@@ -18,10 +18,11 @@
 .furniture-categories {
   margin-bottom: 40px;
 }
+
 .furniture-categories__list {
   display: grid;
-  grid-template-columns: repeat(2, 159px);
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 2fr));
+  gap: 5px;
   justify-content: center;
   padding: 0;
   margin: 40px 0;
@@ -29,7 +30,6 @@
 }
 
 .furniture-categories__item {
-  width: 160px;
   height: 122px;
 }
 
@@ -277,6 +277,15 @@
 @media screen and (min-width: 375px) {
 .furniture__load-more {
   width: 340px;
+}
+
+.furniture-categories__list {
+  grid-template-columns: repeat(2, 159px);
+  gap: 16px;
+}
+
+.furniture-categories__item {
+  width: 160px;
 }
 }
 
