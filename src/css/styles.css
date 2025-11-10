@@ -8,7 +8,6 @@
 @import url('./reset.css');
 @import url('./base.css');
 @import url('./container.css');
-@import url('./responsive.css');
 
 /* Sections style */
 @import url('./header.css');
