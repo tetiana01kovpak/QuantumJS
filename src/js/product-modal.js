@@ -2,8 +2,9 @@ import {
   modalOverlay,
   modalWindow,
   closeBtn,
-  popularListEl, 
-  productsListEl } from './refs';
+  popularListEl,
+  productsListEl,
+} from './refs';
 
 // === ОТКРЫТИЕ МОДАЛКИ ===
 function openModal(productData) {
@@ -11,6 +12,8 @@ function openModal(productData) {
   modalOverlay.classList.remove('is-close');
   // блокируем прокрутку страницы
   document.body.style.overflow = 'hidden';
+  modalWindow.style.maxHeight = '90vh';
+  modalWindow.style.overflowY = 'auto';
 
   // наполняем модалку данными
   modalWindow.querySelector('.prod-name').textContent =
@@ -56,6 +59,8 @@ function openModal(productData) {
 export function closeModal() {
   modalOverlay.classList.add('is-close');
   document.body.style.overflow = '';
+  modalWindow.style.overflowY = '';
+  modalWindow.style.maxHeight = '';
 }
 
 // === ОБРАБОТЧИКИ ===
@@ -88,7 +93,9 @@ window.addEventListener('keydown', e => {
     fetch(`https://furniture-store-v2.b.goit.study/api/furnitures/${id}`)
       .then(res => res.json())
       .then(data => openModal(data))
-      .catch(err => console.error('Помилка при завантаженні даних продукту:', err));
+      .catch(err =>
+        console.error('Помилка при завантаженні даних продукту:', err)
+      );
   });
 });
 
