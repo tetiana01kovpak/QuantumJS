@@ -82,7 +82,9 @@
   transform: translateY(0);
   filter: brightness(0.95);
 }
-
+.active-frame {
+  box-shadow: inset 0 0 0 8px #6b0609, 0 4px 14px rgba(0, 0, 0, 0.1);
+}
 .furniture__load-more {
   margin: 32px auto 0;
   width: 100%;
@@ -312,9 +314,7 @@
   .furniture__title {
     font-size: 48px;
   }
-  .active-frame {
-    box-shadow: inset 0 0 0 8px #6b0609, 0 4px 14px rgba(0, 0, 0, 0.1);
-  }
+
   .furniture__load-more {
     width: 421px;
   }
