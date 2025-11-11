@@ -11,6 +11,11 @@ function open({ modelId = '', color = '' } = {}) {
   orderData = { modelId, color };
   overlay.classList.add('is-open');
   document.body.style.overflow = 'hidden';
+  const modalWindow = overlay.querySelector('.modal'); // or your modal’s main block
+  if (modalWindow) {
+    modalWindow.style.maxHeight = '90vh';
+    modalWindow.style.overflowY = 'auto';
+  }
 }
 
 // === ЗАКРИТТЯ МОДАЛКИ ===
@@ -18,6 +23,12 @@ function close() {
   if (!overlay) return;
   overlay.classList.remove('is-open');
   document.body.style.overflow = '';
+  const modalWindow = overlay.querySelector('.modal');
+  if (modalWindow) {
+    modalWindow.style.overflowY = '';
+    modalWindow.style.maxHeight = '';
+  }
+
   orderData = {};
   // прибрати червоні рамки після закриття
   [...form.elements].forEach(el => el.classList.remove('input-error'));
@@ -127,4 +138,3 @@ form?.addEventListener('submit', async e => {
 
 export { open as openOrderModal, close as closeOrderModal };
 import { closeModal as closeProductModal } from './product-modal.js';
-
