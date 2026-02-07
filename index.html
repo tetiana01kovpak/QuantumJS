@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/QuantumJS/assets/favicon-DTKdNlgV.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QuantumJS</title>
+    <meta name="description" content="Знайдіть меблі на свій смак. Меблі для дому, саду та офісу">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wdth,wght@0,75..100,500;1,75..100,500&family=Raleway:wght@100..900&display=swap"
+      rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <script type="module" crossorigin src="/QuantumJS/index.js"></script>
+    <link rel="modulepreload" crossorigin href="/QuantumJS/assets/vendor-mUhAJKfp.js">
+    <link rel="stylesheet" crossorigin href="/QuantumJS/assets/vendor-BMbto7SD.css">
+    <link rel="stylesheet" crossorigin href="/QuantumJS/assets/index-8Ty4lwtU.css">
+  </head>
+   
+  <body>
+    <header class="header">
+  <div class="container">
+    <div class="header-wrapper">
+      <a href="./index.html" class="logo-header" aria-label="Головна сторінка">
+        <svg class="logo-header-icon" width="158" height="35">
+          <use href="/QuantumJS/assets/icons-fSjz1rIH.svg#icon-logo-black"></use>
+        </svg>
+      </a>
+
+      <button type="button" class="close-btn-tablet" aria-label="Закрити вікно">
+        <svg class="close-btn-icon" width="32" height="32">
+          <use href="/QuantumJS/assets/icons-fSjz1rIH.svg#icon-cross"></use>
+        </svg>
+      </button>
+
+      <button type="button" class="burger-btn" aria-label="Мобільне меню">
+        <svg class="burger-btn-icon" width="32" height="32">
+          <use href="/QuantumJS/assets/icons-fSjz1rIH.svg#icon-menu"></use>
+        </svg>
+      </button>
+      <div class="overlay">
+        <nav class="header-nav">
+          <div class="menu-top-wrapper">
+            <a href="./index.html" class="logo-header">
+              <svg class="logo-header-icon" width="163" height="35">
+                <use href="/QuantumJS/assets/icons-fSjz1rIH.svg#icon-logo-black"></use>
+              </svg>
+            </a>
+
+            <button type="button" class="close-btn" aria-label="Закрити вікно">
+              <svg class="close-btn-icon" width="32" height="32">
+                <use href="/QuantumJS/assets/icons-fSjz1rIH.svg#icon-cross"></use>
+              </svg>
+            </button>
+          </div>
+
+          <ul class="nav-links-list">
+            <li class="header-nav-item">
+              <a href="#furniture-list-section" class="header-nav-link"
+                >Наші меблі</a
+              >
+            </li>
+            <li class="header-nav-item">
+              <a href="#about-us" class="header-nav-link">Про нас</a>
+            </li>
+            <li class="header-nav-item">
+              <a href="#popular-products-section" class="header-nav-link"
+                >Популярне</a
+              >
+            </li>
+            <li class="header-nav-item">
+              <a href="#faq-section" class="header-nav-link">Часті питання</a>
+            </li>
+            <li class="header-nav-item">
+              <a href="#feedback" class="header-nav-link">Відгуки</a>
+            </li>
+            <li class="button">
+              <a href="#furniture-list-section" class="nav-button"
+                >До покупок</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+    <main>
+      <section class="hero" fetchpriority="high">
+  <div class="container">
+    <h1 class="hero-title">Створіть свій ідеальний дім</h1>
+    <p class="hero-description">
+      Відкрийте для себе колекцію стильних та комфортних меблів, які перетворять
+      ваш простір. Наша продукція поєднує в собі елегантність та
+      функціональність.
+    </p>
+    <a href="#feedback" class="button hero-button" aria-label="Перейти до відгуків" data-modal-open
+      >Що про нас думають</a
+    >
+  </div>
+</section>
+
+      <section class="furniture" id="furniture-list-section">
+  <div class="container">
+    <div class="furniture__header">
+      <h2 class="furniture__title">Наші меблі</h2>
+      <p class="furniture__subtitle">
+        Знайдіть ідеальні рішення для вашого інтер'єру
+      </p>
+    </div>
+    <div class="furniture-categories">
+      <ul class="furniture-categories__list">
+        <li class="furniture-categories__item">
+          <button
+            class="category-chip category-chip--all active-frame"
+            type="button" aria-label="Показати всі товари"
+          >
+            <span class="category-chip__label furniture-categories__js"
+              >Всі товари</span
+            >
+          </button>
+        </li>
+        <li class="furniture-categories__item">
+          <button
+            class="category-chip category-chip--soft"
+            type="button"
+            aria-label="Категорія м'які меблі"
+            data-category-id
+          >
+            <span class="category-chip__label furniture-categories__js"></span>
+          </button>
+        </li>
+        <li class="furniture-categories__item">
+          <button
+            class="category-chip category-chip--wardrobes"
+            type="button"
+            aria-label="Категорія шафи та системи зберігання"
+            data-category-id
+          >
+            <span class="category-chip__label furniture-categories__js"></span>
+          </button>
+        </li>
+        <li class="furniture-categories__item">
+          <button
+            class="category-chip category-chip--beds"
+            type="button"
+            aria-label="Категорія ліжка та матраци"
+            data-category-id
+          >
+            <span class="category-chip__label furniture-categories__js"></span>
+          </button>
+        </li>
+        <li class="furniture-categories__item">
+          <button
+            class="category-chip category-chip--tables"
+            type="button"
+            aria-label="Категорія столи"
+            data-category-id
+          >
+            <span class="category-chip__label furniture-categories__js"></span>
+          </button>
+        </li>
+        <li class="furniture-categories__item">
+          <button
+            class="category-chip category-chip--chairs"
+            type="button"
+            aria-label="Категорія стільці та табурети"
+            data-category-id
+          >
+            <span class="category-chip__label furniture-categories__js"></span>
+          </button>
+        </li>
+        <li class="furniture-categories__item">
+          <button
+            class="category-chip category-chip--kitchens"
+            type="button"
+            aria-label="Категорія кухні"
+            data-category-id
+          >
+            <span class="category-chip__label furniture-categories__js"></span>
+          </button>
+        </li>
+        <li class="furniture-categories__item">
+          <button
+            class="category-chip category-chip--kids"
+            type="button"
+            aria-label="Категорія меблі для дитячої"
+            data-category-id
+          >
+            <span class="category-chip__label furniture-categories__js"></span>
+          </button>
+        </li>
+        <li class="furniture-categories__item">
+          <button
+            class="category-chip category-chip--office"
+            type="button"
+            aria-label="Категорія меблі для офісу"
+            data-category-id
+          >
+            <span class="category-chip__label furniture-categories__js"></span>
+          </button>
+        </li>
+        <li class="furniture-categories__item">
+          <button
+            class="category-chip category-chip--hallway"
+            type="button"
+            aria-label="Категорія меблі для передпокою"
+            data-category-id
+          >
+            <span class="category-chip__label furniture-categories__js"></span>
+          </button>
+        </li>
+        <li class="furniture-categories__item">
+          <button
+            class="category-chip category-chip--bathroom"
+            type="button"
+            aria-label="Категорія меблі для ванної кімнати"
+            data-category-id
+          >
+            <span class="category-chip__label furniture-categories__js"></span>
+          </button>
+        </li>
+        <li class="furniture-categories__item">
+          <button
+            class="category-chip category-chip--outdoor"
+            type="button"
+            aria-label="Категорія садові та вуличні меблі"
+            data-category-id
+          >
+            <span class="category-chip__label furniture-categories__js"></span>
+          </button>
+        </li>
+        <li class="furniture-categories__item">
+          <button
+            class="category-chip category-chip--decor"
+            type="button"
+            aria-label="Категорія декор та аксесуари"
+            data-category-id
+          >
+            <span class="category-chip__label furniture-categories__js"></span>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <div class="furniture-list">
+      <ul class="products-grid furniture-list-js"></ul>
+    </div>
+    <div
+      class="loader"
+      id="loader"
+      hidden
+      aria-live="polite"
+      aria-busy="true"
+    ></div>
+    <div class="furniture__actions">
+      <button
+        class="button furniture__load-more"
+        type="button"
+        data-action="load-more"
+        aria-label="Показати ще"
+        hidden
+      >
+        Показати ще
+      </button>
+    </div>
+  </div>
+</section>
+
+      <section id="about-us" class="about-us">
+  <div class="container">
+    <div class="subtitle-container">
+      <h2 class="about-us-title">Про Меблерію</h2>
+      <p class="about-us-text">
+        У Меблерії ми прагнемо створювати затишок та функціональність у кожному
+        домі. Наша місія — пропонувати високоякісні меблі, що поєднують у собі
+        сучасний дизайн, довговічність та доступність. Ми віримо, що ідеальний
+        інтер’єр починається з правильних меблів.
+      </p>
+    </div>
+
+    <div class="about-us-img-container">
+      <picture>
+        <source
+          media="(min-width: 1440px)"
+          srcset="/QuantumJS/assets/about-us-1x-mX_48qu5.webp 1x, /QuantumJS/assets/about-us-2x-Dh1y3LPj.webp 2x"
+        />
+        <source
+          media="(min-width: 768px)"
+          srcset="/QuantumJS/assets/about-us-1x_tablet-B9y8MiuP.webp 1x, /QuantumJS/assets/about-us-2x_tablet-DDeeeUY0.webp 2x"
+        />
+        <source
+          media="(max-width: 767px)"
+          srcset="/QuantumJS/assets/about-us-1x-mobile-C0ZK9s6D.webp 1x, /QuantumJS/assets/about-us-2x-mobile-BSq2b8R1.webp 2x"
+        />
+        <img
+          src="/QuantumJS/assets/about-us-1x-mobile-C0ZK9s6D.webp"
+          alt="Команда Меблерії"
+          loading="lazy"
+        />
+      </picture>
+    </div>
+  </div>
+</section>
+
+      <section class="popular-products" id="popular-products-section">
+    <div class="container">
+        <div class="popular-products__header">
+            <h2 class="popular-products__title">Популярні товари</h2>
+        </div>
+
+        <div class="popular-products-swiper">
+            <div class="swiper popular-products__container">
+                <ul class="swiper-wrapper popular-products__list"></ul>
+            </div>
+
+            <div class="popular-products__nav">
+            <button class="popular-products__btn popular-products__btn--prev" type="button" aria-label="Попередній">
+                <svg width="24" height="24">
+                    <use href="/QuantumJS/assets/icons-fSjz1rIH.svg#icon-left-arrow-alt"></use>
+                </svg>
+            </button>
+
+            <button class="popular-products__btn popular-products__btn--next" type="button" aria-label="Наступний">
+                <svg width="24" height="24">
+                    <use href="/QuantumJS/assets/icons-fSjz1rIH.svg#icon-right-arrow-alt"></use>
+                </svg>
+            </button>
+            </div>
+        </div>
+
+        <div class="popular-products__pagination"></div>
+    </div>
+</section> 
+      <section class="faq" id="faq-section">
+  <div class="container">
+    <h2 class="faq-title">Часті питання</h2>
+
+    <div class="accordion-container" id="faq-accordion">
+      <div class="ac">
+        <div class="ac-header">
+          <button type="button" class="ac-trigger">
+            <span class="ac-trigger-text"
+              >Як здійснюється доставка меблів?</span
+            >
+            <svg
+              class="ac-icon"
+              width="20"
+              height="20"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <use href="/QuantumJS/assets/icons-fSjz1rIH.svg#icon-chevron-down"></use>
+            </svg>
+          </button>
+        </div>
+        <div class="ac-panel">
+          <p class="ac-text">
+            Ми доставляємо замовлення по всій Україні через надійні служби.
+            Термін доставки зазвичай складає 3–7 днів залежно від регіону.
+          </p>
+        </div>
+      </div>
+
+      <div class="ac">
+        <div class="ac-header">
+          <button type="button" class="ac-trigger">
+            <span class="ac-trigger-text"
+              >Чи є можливість вибрати колір або матеріал?</span
+            >
+            <svg
+              class="ac-icon"
+              width="20"
+              height="20"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <use href="/QuantumJS/assets/icons-fSjz1rIH.svg#icon-chevron-down"></use>
+            </svg>
+          </button>
+        </div>
+        <div class="ac-panel">
+          <p class="ac-text">
+            Так, у багатьох моделях доступні варіанти оббивки та кольорів. Усі
+            доступні опції вказані на сторінці товару.
+          </p>
+        </div>
+      </div>
+
+      <div class="ac">
+        <div class="ac-header">
+          <button type="button" class="ac-trigger">
+            <span class="ac-trigger-text"
+              >Чи можна повернути товар, якщо він не підійшов?</span
+            >
+            <svg
+              class="ac-icon"
+              width="20"
+              height="20"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <use href="/QuantumJS/assets/icons-fSjz1rIH.svg#icon-chevron-down"></use>
+            </svg>
+          </button>
+        </div>
+        <div class="ac-panel">
+          <p class="ac-text">
+            Так, ви можете повернути товар протягом 14 днів, якщо він не був у
+            користуванні та збережений у первинному вигляді.
+          </p>
+        </div>
+      </div>
+
+      <div class="ac">
+        <div class="ac-header">
+          <button type="button" class="ac-trigger">
+            <span class="ac-trigger-text"
+              >Чи надаєте ви послугу збирання меблів?</span
+            >
+            <svg
+              class="ac-icon"
+              width="20"
+              height="20"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <use href="/QuantumJS/assets/icons-fSjz1rIH.svg#icon-chevron-down"></use>
+            </svg>
+          </button>
+        </div>
+        <div class="ac-panel">
+          <p class="ac-text">
+            Так, під час оформлення замовлення можна обрати послугу збирання.
+            Наші майстри зберуть меблі у зручний для вас час.
+          </p>
+        </div>
+      </div>
+
+      <div class="ac">
+        <div class="ac-header">
+          <button type="button" class="ac-trigger">
+            <span class="ac-trigger-text">Як здійснити оплату?</span>
+            <svg
+              class="ac-icon"
+              width="20"
+              height="20"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <use href="/QuantumJS/assets/icons-fSjz1rIH.svg#icon-chevron-down"></use>
+            </svg>
+          </button>
+        </div>
+        <div class="ac-panel">
+          <p class="ac-text">
+            Ми приймаємо оплату карткою онлайн, банківським переказом або
+            післяплатою при отриманні.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <section class="reviews" id="feedback">
+  <div class="container">
+    <div class="reviews__header">
+      <h2 class="reviews__title">Відгуки клієнтів</h2>
+      <p class="reviews__description">
+        Дізнайтеся, що кажуть наші задоволені клієнти про наші меблі.
+      </p>
+    </div>
+
+    <div class="reviews__swiper-wrapper">
+      <div class="swiper reviews__container">
+        <ul class="swiper-wrapper reviews__list js-review"></ul>
+      </div>
+
+      <div class="reviews__nav">
+        <button class="reviews__btn reviews__btn--prev" type="button" aria-label="Попередній">
+          <svg width="24" height="24">
+            <use href="/QuantumJS/assets/icons-fSjz1rIH.svg#icon-left-arrow-alt"></use>
+          </svg>
+        </button>
+
+        <button class="reviews__btn reviews__btn--next" type="button" aria-label="Наступний">
+          <svg width="24" height="24">
+            <use href="/QuantumJS/assets/icons-fSjz1rIH.svg#icon-right-arrow-alt"></use>
+          </svg>
+        </button>
+      </div>
+      <div class="reviews__pagination swiper-pagination"></div>
+    </div>
+  </div>
+</section>
+
+      <div class="prod-modal-overlay is-close">
+  <div class="prod-modal-window">
+    <button class="close-modal-btn" aria-label="Закрити вікно">
+      <svg width="32" height="32" class="close-icon">
+        <use href="/QuantumJS/assets/icons-fSjz1rIH.svg#icon-cross"></use>
+      </svg>
+    </button>
+    <div class="image-cont">
+      <img src="/QuantumJS/assets/sofaImg-BcwXuBEu.jpg" alt="Big Sofa" />
+      <img src="/QuantumJS/assets/sofaImg2-1bSRZxEh.jpg" alt="Sofa in Room" />
+      <img src="/QuantumJS/assets/sofaImg3-1TvW-_yV.jpg" alt="Sofa in Corner" />
+    </div>
+    <div class="prod-info">
+      <h2 class="prod-name">Софа Oslo</h2>
+      <h3 class="prod-category">Дивани</h3>
+      <h3 class="prod-price">9 999 грн</h3>
+      <div class="stars">
+        <svg class="icon">
+          <use
+            href="/QuantumJS/assets/icons-fSjz1rIH.svg#icon-star-fill"
+            width="16"
+            height="15"
+          ></use>
+        </svg>
+        <svg class="icon">
+          <use
+            href="/QuantumJS/assets/icons-fSjz1rIH.svg#icon-star-fill"
+            width="16"
+            height="15"
+          ></use>
+        </svg>
+        <svg class="icon">
+          <use
+            href="/QuantumJS/assets/icons-fSjz1rIH.svg#icon-star-fill"
+            width="16"
+            height="15"
+          ></use>
+        </svg>
+        <svg class="icon">
+          <use
+            href="/QuantumJS/assets/icons-fSjz1rIH.svg#icon-star-fill"
+            width="16"
+            height="15"
+          ></use>
+        </svg>
+        <svg class="icon">
+          <use
+            href="/QuantumJS/assets/icons-fSjz1rIH.svg#icon-star-half"
+            width="16"
+            height="15"
+          ></use>
+        </svg>
+      </div>
+      <h3 class="color-title">Колір</h3>
+      <div class="color-btns">
+        <input
+          class="color-btn gray"
+          type="radio"
+          name="product-color"
+          value="#c7c3bb"
+          aria-label="сірий колір"
+          checked
+        />
+        <input
+          class="color-btn white"
+          type="radio"
+          name="product-color"
+          value="#fff"
+          aria-label="білий колір"
+        />
+        <input
+          class="color-btn black"
+          type="radio"
+          name="product-color"
+          value="#201a19"
+          aria-label="чорний колір"
+        />
+      </div>
+      <h3 class="prod-descr">
+        Класичний диван з м'якими подушками та високою спинкою, ідеальний для
+        сімейного відпочинку. Оббивка з якісної зносостійкої тканини.
+      </h3>
+      <h3 class="prod-size">Розміри: 280x180x85</h3>
+      <button type="submit" class="modal-sub-btn button" aria-label="Перейти до замовлення">
+        Перейти до замовлення
+      </button>
+    </div>
+  </div>
+</div>
+
+      <div class="modal-overlay">
+  <div class="modal section">
+    <button class="modal-close" aria-label="Закрити вікно">
+      <svg width="32" height="32">
+        <use href="/QuantumJS/assets/icons-fSjz1rIH.svg#icon-cross"></use>
+      </svg>
+    </button>
+
+    <div class="section-title">
+      <h2 class="modal-heading">Замовити</h2>
+    </div>
+
+    <form class="modal-form">
+      <div class="modal-field">
+        <label for="name">Ім'я*</label>
+        <input
+          id="name"
+          name="name"
+          type="text"
+          placeholder="Дмитро"
+          required
+          minlength="2"
+          maxlength="64"
+          aria-label="Введіть ім'я"
+        />
+      </div>
+
+      <div class="modal-field">
+        <label for="phone">Телефон*</label>
+        <input
+          id="phone"
+          name="phone"
+          type="tel"
+          placeholder="380961234568"
+          required
+          pattern="[0-9]{12}"
+          title="Введіть 12 цифр без пробілів"
+          aria-label="Введіть номер телефону"
+        />
+      </div>
+
+      <div class="modal-field">
+        <label for="comment">Коментар</label>
+        <textarea
+          id="comment"
+          name="comment"
+          placeholder="Введіть ваш коментар"
+          maxlength="256"
+          aria-label="Додайте коментар"
+        ></textarea>
+      </div>
+
+      <button type="submit" class="button modal-button" aria-label="Надіслати заявку">
+        Надіслати заявку
+      </button>
+    </form>
+  </div>
+</div>
+
+    </main>
+
+    <footer class="footer" id="footer">
+  <div class="container footer-container">
+    <!-- Логотип -->
+    <a class="footer-logo" href="./index.html" aria-label="На головну">
+      <svg class="footer-logo-icon" width="221" height="49" aria-hidden="true">
+        <use href="/QuantumJS/assets/icons-fSjz1rIH.svg#icon-logo-white"></use>
+      </svg>
+    </a>
+
+    <!-- Навігація -->
+    <nav class="footer-nav" aria-label="Навігація по сторінці">
+      <ul class="footer-menu">
+        <li><a class="footer-link" href="#furniture-list-section">Наші меблі</a></li>
+        <li><a class="footer-link" href="#about-us">Про нас</a></li>
+        <li><a class="footer-link" href="#popular-products-section">Популярне</a></li>
+        <li><a class="footer-link" href="#faq-section">Часті питання</a></li>
+        <li><a class="footer-link" href="#feedback">Відгуки</a></li>
+      </ul>
+    </nav>
+
+    <!-- Соцмережі -->
+    <ul class="footer-social" aria-label="Соціальні мережі">
+      <li>
+        <a
+          class="footer-social-link"
+          href="https://www.youtube.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="YouTube"
+        >
+          <svg class="footer-icon" width="24" height="24" aria-hidden="true">
+            <use href="/QuantumJS/assets/icons-fSjz1rIH.svg#icon-youtube"></use>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a
+          class="footer-social-link"
+          href="https://www.instagram.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+        >
+          <svg class="footer-icon" width="24" height="24" aria-hidden="true">
+            <use href="/QuantumJS/assets/icons-fSjz1rIH.svg#icon-instagram"></use>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a
+          class="footer-social-link"
+          href="https://www.facebook.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+        >
+          <svg class="footer-icon" width="24" height="24" aria-hidden="true">
+            <use href="/QuantumJS/assets/icons-fSjz1rIH.svg#icon-facebook"></use>
+          </svg>
+        </a>
+      </li>
+    </ul>
+
+    <!-- Копірайт -->
+    <p class="footer-copy">
+      © <span id="year">2025</span> Меблерія. Всі права захищені.
+    </p>
+  </div>
+</footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  </body>
+</html>
